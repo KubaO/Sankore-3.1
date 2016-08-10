@@ -42,9 +42,9 @@
 
 #include "UBExportPDF.h"
 
-#include <Merger.h>
-#include <Exception.h>
-#include <Transformation.h>
+#include "pdf-merger/Merger.h"
+#include "pdf-merger/Exception.h"
+#include "pdf-merger/Transformation.h"
 
 #include "core/memcheck.h"
 

@@ -56,8 +56,6 @@ include(src/transition/transition.pri)
 include(src/interfaces/interfaces.pri)
 include(src/customWidgets/customWidgets.pri)
 
-DEPENDPATH += src/pdf-merger
-INCLUDEPATH += src/pdf-merger
 include(src/pdf-merger/pdfMerger.pri)
 
 #plugins
