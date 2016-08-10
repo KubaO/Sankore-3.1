@@ -145,8 +145,8 @@ macx {
    # are not yet available in 64bits.
    CONFIG(debug, debug|release):CONFIG += x86
 
-   QMAKE_MAC_SDK = "/Developer/SDKs/MacOSX10.6.sdk"
-   QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.5"
+   #QMAKE_MAC_SDK = "macosx10.8"
+   QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 
    VERSION_RC_PATH = "$$BUILD_DIR/version_rc"
 
