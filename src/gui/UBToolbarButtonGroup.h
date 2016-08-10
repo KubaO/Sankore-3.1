@@ -25,7 +25,7 @@
 #define UBTOOLBARBUTTONGROUP_H_
 
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBToolbarButtonGroup : public QWidget
 {

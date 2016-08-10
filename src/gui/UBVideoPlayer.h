@@ -25,7 +25,7 @@
 #define UBVIDEOPLAYER_H_
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include <phonon/VideoPlayer>
 
 class UBVideoPlayerTransport;

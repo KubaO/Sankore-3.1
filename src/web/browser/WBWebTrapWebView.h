@@ -24,7 +24,7 @@
 #ifndef WBWEBTRAPWEBVIEW_H_
 #define WBWEBTRAPWEBVIEW_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 

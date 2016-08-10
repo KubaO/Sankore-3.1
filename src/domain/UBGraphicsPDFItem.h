@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSPDFITEM_H_
 #define UBGRAPHICSPDFITEM_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBItem.h"
 

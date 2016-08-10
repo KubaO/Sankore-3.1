@@ -24,7 +24,7 @@
 #ifndef UBBOARDVIEW_H_
 #define UBBOARDVIEW_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "core/UB.h"
 #include "domain/UBGraphicsDelegateFrame.h"
 

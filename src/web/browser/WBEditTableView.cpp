@@ -63,7 +63,7 @@
 ****************************************************************************/
 
 #include "WBEditTableView.h"
-#include <QtGui/QKeyEvent>
+#include <QtWidgets/QKeyEvent>
 
 #include "core/memcheck.h"
 

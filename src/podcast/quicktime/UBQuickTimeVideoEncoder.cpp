@@ -25,7 +25,7 @@
 
 #include <QuickTime/QuickTime.h>
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "frameworks/UBFileSystemUtils.h"
 

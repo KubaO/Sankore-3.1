@@ -24,7 +24,7 @@
 #ifndef UBFAVORITETOOLPALETTE_H_
 #define UBFAVORITETOOLPALETTE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBActionPalette.h"
 

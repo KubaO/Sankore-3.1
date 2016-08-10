@@ -65,7 +65,7 @@
 #ifndef WBBROWSERMAINWINDOW_H
 #define WBBROWSERMAINWINDOW_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 class WBChaseWidget;

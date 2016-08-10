@@ -21,7 +21,7 @@
 
 #include "UBForeignObjectsHandler.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtXml>
 #include "UBSettings.h"
 

@@ -21,7 +21,7 @@
 
 #include "UBRegularShapesPalette.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBMainWindow.h"
 

@@ -23,7 +23,7 @@
 
 #include "WBWebTrapWebView.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "web/UBWebKitUtils.h"

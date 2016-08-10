@@ -23,7 +23,7 @@
 #ifndef UBUNINOTESWINDOWCONTROLLER_H_
 #define UBUNINOTESWINDOWCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QTime>
 #include <QTimer>
 

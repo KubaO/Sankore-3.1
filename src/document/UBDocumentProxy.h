@@ -24,7 +24,7 @@
 #ifndef UBDOCUMENTPROXY_H_
 #define UBDOCUMENTPROXY_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "frameworks/UBStringUtils.h"
 

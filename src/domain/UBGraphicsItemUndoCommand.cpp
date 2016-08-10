@@ -23,7 +23,7 @@
 
 #include "UBGraphicsItemUndoCommand.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBGraphicsScene.h"
 

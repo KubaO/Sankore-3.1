@@ -24,7 +24,7 @@
 #ifndef UBDISPLAYMANAGER_H_
 #define UBDISPLAYMANAGER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBBlackoutWidget;
 class UBBoardView;

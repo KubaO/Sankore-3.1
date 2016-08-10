@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSPROTRACTOR_H_
 #define UBGRAPHICSPROTRACTOR_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 
 #include "core/UB.h"

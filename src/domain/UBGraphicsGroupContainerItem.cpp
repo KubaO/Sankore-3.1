@@ -23,7 +23,7 @@
 
 #include "UBGraphicsGroupContainerItem.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBGraphicsMediaItem.h"
 #include "UBGraphicsTextItem.h"

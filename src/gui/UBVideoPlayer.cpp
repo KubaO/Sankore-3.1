@@ -23,7 +23,7 @@
 
 #include "UBVideoPlayer.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include <phonon/MediaObject>
 #include <phonon/SeekSlider>

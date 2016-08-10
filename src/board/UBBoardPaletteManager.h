@@ -24,7 +24,7 @@
 #ifndef UBBOARDPALETTEMANAGER_H_
 #define UBBOARDPALETTEMANAGER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "gui/UBLeftPalette.h"

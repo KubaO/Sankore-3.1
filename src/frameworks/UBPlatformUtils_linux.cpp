@@ -23,7 +23,7 @@
 
 #include "UBPlatformUtils.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include <unistd.h>
 #include <X11/Xlib.h>

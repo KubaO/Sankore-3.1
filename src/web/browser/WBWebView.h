@@ -65,7 +65,7 @@
 #ifndef WBWEBVIEW_H
 #define WBWEBVIEW_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "WBWebTrapWebView.h"

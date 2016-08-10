@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSTEXTITEM_H_
 #define UBGRAPHICSTEXTITEM_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "UBItem.h"
 #include "core/UB.h"
 #include "UBResizableGraphicsItem.h"

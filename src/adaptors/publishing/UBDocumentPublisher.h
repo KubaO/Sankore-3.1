@@ -23,7 +23,7 @@
 #ifndef UBDOCUMENTPUBLISHER_H
 #define UBDOCUMENTPUBLISHER_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtNetwork>
 
 #include "ui_webPublishing.h"

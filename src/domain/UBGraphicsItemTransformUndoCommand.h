@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSITEMTRANSFORMUNDOCOMMAND_H_
 #define UBGRAPHICSITEMTRANSFORMUNDOCOMMAND_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBResizableGraphicsItem.h"
 #include "UBAbstractUndoCommand.h"

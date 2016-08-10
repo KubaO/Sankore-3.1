@@ -64,7 +64,7 @@
 
 #include "WBToolBarSearch.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "network/UBAutoSaver.h"

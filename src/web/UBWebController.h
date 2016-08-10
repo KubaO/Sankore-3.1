@@ -24,7 +24,7 @@
 #ifndef UBWEBCONTROLLER_H_
 #define UBWEBCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "UBOEmbedParser.h"

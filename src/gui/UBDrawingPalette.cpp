@@ -23,7 +23,7 @@
 
 #include "UBDrawingPalette.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBDrawingPolygonPalette.h"
 #include "UBAlignObjectPalette.h"

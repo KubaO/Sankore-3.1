@@ -26,7 +26,7 @@
 #include <AudioToolbox/AudioToolbox.h>
 
 #include "UBAudioQueueRecorder.h"
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/memcheck.h"
 

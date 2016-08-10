@@ -64,7 +64,7 @@
 
 #include "WBSearchLineEdit.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/memcheck.h"
 

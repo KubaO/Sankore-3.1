@@ -69,7 +69,7 @@
 
 #include "globals/UBGlobals.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/memcheck.h"
 

@@ -67,7 +67,7 @@
 
 #include "WBSearchLineEdit.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBAutoSaver;
 

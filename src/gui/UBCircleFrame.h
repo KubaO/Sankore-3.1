@@ -24,7 +24,7 @@
 #ifndef UBCIRCLEFRAME_H_
 #define UBCIRCLEFRAME_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBCircleFrame : public QFrame
 {

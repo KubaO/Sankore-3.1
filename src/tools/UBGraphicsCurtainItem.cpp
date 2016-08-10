@@ -23,7 +23,7 @@
 
 #include "UBGraphicsCurtainItem.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "domain/UBGraphicsScene.h"
 

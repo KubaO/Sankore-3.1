@@ -25,7 +25,7 @@
 #define UBSETTINGS_H_
 
 #include <QtCore>
-#include <QtGui>
+#include <QtWidgets>
 #include <QtNetwork>
 
 #include "UB.h"

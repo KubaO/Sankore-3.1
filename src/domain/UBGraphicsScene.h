@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSSCENE_H_
 #define UBGRAPHICSSCENE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "frameworks/UBCoreGraphicsScene.h"
 

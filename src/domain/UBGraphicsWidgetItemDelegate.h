@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSWIDGETITEMDELEGATE_H_
 #define UBGRAPHICSWIDGETITEMDELEGATE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBGraphicsItemDelegate.h"
 #include "UBGraphicsWidgetItem.h"

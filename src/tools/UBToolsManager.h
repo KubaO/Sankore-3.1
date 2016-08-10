@@ -24,7 +24,7 @@
 #ifndef UBTOOLSMANAGER_H_
 #define UBTOOLSMANAGER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/UBApplication.h"
 

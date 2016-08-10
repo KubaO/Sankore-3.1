@@ -24,7 +24,7 @@
 #ifndef UBTOOLWIDGET_H_
 #define UBTOOLWIDGET_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <core/UBApplicationController.h>
 
 class UBGraphicsWidgetItem;

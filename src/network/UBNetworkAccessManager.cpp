@@ -23,7 +23,7 @@
 
 #include "UBNetworkAccessManager.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtNetwork>
 
 #include "core/UBApplication.h"

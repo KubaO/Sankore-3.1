@@ -23,7 +23,7 @@
 
 #include "UBGraphicsPDFItem.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBGraphicsScene.h"
 #include "UBGraphicsPixmapItem.h"

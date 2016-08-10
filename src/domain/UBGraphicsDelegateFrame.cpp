@@ -23,7 +23,7 @@
 
 #include "UBGraphicsDelegateFrame.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 
 #include "core/UBApplication.h"

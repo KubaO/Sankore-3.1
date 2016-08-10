@@ -23,7 +23,7 @@
 
 #include "UBStylusPalette.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBMainWindow.h"
 

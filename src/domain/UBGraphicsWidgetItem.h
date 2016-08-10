@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSWIDGETITEM_H
 #define UBGRAPHICSWIDGETITEM_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 #include <QDomElement>
 

@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSPOLYGONITEM_H
 #define UBGRAPHICSPOLYGONITEM_H
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/UB.h"
 #include "UBItem.h"

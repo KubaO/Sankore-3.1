@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QDomDocument>
 #include <QXmlQuery>
 

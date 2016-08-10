@@ -24,7 +24,7 @@
 #ifndef UBDOCUMENTCONTAINER_H_
 #define UBDOCUMENTCONTAINER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "UBDocumentProxy.h"
 
 class UBDocumentContainer : public QObject

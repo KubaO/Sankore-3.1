@@ -24,7 +24,7 @@
 #ifndef UBUNILPUBLISHER_H_
 #define UBUNILPUBLISHER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "ui_intranetPodcastPublishingDialog.h"
 

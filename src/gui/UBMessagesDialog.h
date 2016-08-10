@@ -24,7 +24,7 @@
 #ifndef UB_MESSAGES_DIALOG_H_
 #define UB_MESSAGES_DIALOG_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBMessagesDialog : public QWidget
 {

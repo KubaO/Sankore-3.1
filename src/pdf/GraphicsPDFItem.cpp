@@ -25,7 +25,7 @@
 
 #include <qglobal.h>
 
-#include <QtGui/QStyleOptionGraphicsItem>
+#include <QtWidgets/QStyleOptionGraphicsItem>
 
 #include "core/memcheck.h"
 

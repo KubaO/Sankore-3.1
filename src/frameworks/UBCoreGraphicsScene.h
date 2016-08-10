@@ -24,7 +24,7 @@
 #ifndef UBCOREGRAPHICSSCENE_H_
 #define UBCOREGRAPHICSSCENE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBCoreGraphicsScene : public QGraphicsScene
 {

@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QTextCodec>
 
 #include "frameworks/UBPlatformUtils.h"

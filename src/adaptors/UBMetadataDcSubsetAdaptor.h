@@ -24,7 +24,7 @@
 #ifndef UBMETADATADCSUBSETADAPTOR_H_
 #define UBMETADATADCSUBSETADAPTOR_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBDocumentProxy;
 

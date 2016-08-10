@@ -23,7 +23,7 @@
 
 #include "UBDesktopPalette.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "frameworks/UBPlatformUtils.h"
 

@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include "UBToolWidget.h"
 #include "api/UBWidgetUniboardAPI.h"
 #include "api/UBW3CWidgetAPI.h"

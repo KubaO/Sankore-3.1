@@ -75,7 +75,7 @@
 #include "network/UBNetworkAccessManager.h"
 #include "network/UBCookieJar.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 #include <QtUiTools/QUiLoader>
 

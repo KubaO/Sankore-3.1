@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 
 #include "domain/UBGraphicsScene.h"

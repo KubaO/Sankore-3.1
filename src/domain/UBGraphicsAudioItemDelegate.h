@@ -23,7 +23,7 @@
 #ifndef UBGRAPHICSAUDIOITEMDELEGATE_H
 #define UBGRAPHICSAUDIOITEMDELEGATE_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <phonon/MediaObject>
 
 #include "core/UB.h"

@@ -24,7 +24,7 @@
 #ifndef UB_H_
 #define UB_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #define UB_MAX_ZOOM 9
 

@@ -34,7 +34,7 @@
 #include <QMap>
 #include <QUrl>
 #include <QByteArray>
-#include <QtGui>
+#include <QtWidgets>
 #include <QImage>
 #include <QThread>
 #include <QMutex>

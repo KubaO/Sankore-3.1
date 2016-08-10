@@ -24,7 +24,7 @@
 #ifndef UBITEM_H
 #define UBITEM_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include "domain/UBGraphicsItemDelegate.h"
 #include "core/UB.h"
 

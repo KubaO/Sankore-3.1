@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSCOMPASS_H_
 #define UBGRAPHICSCOMPASS_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 
 #include "core/UB.h"

@@ -23,7 +23,7 @@
 #ifndef CRASHWINDOW_H_
 #define CRASHWINDOW_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "google_breakpad/processor/basic_source_line_resolver.h"
 #include "google_breakpad/processor/call_stack.h"
 #include "google_breakpad/processor/code_module.h"

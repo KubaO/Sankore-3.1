@@ -24,7 +24,7 @@
 #include "UBFileSystemUtils.h"
 #include <limits>
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/UBApplication.h"
 

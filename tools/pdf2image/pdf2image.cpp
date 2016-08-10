@@ -20,7 +20,7 @@
  */
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include <XPDFRenderer.h>
 #include "core/UBPlatformUtils.h"
 

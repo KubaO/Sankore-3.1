@@ -23,7 +23,7 @@
 #include "UBDocumentController.h"
 
 #include <QtCore>
-#include <QtGui>
+#include <QtWidgets>
 
 #include "frameworks/UBFileSystemUtils.h"
 #include "frameworks/UBStringUtils.h"

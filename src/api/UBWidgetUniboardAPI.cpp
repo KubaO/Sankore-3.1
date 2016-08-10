@@ -25,7 +25,7 @@
 
 #include <QWebView>
 #include <QDomDocument>
-#include <QtGui>
+#include <QtWidgets>
 
 #include "gui/UBMainWindow.h"
 

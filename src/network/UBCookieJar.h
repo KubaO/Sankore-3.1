@@ -67,7 +67,7 @@
 
 #include <QtNetwork/QNetworkCookieJar>
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBAutoSaver;
 

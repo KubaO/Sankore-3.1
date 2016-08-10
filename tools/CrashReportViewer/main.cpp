@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include "CrashWindow.h"
 #include "client/mac/handler/exception_handler.h"
 

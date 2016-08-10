@@ -27,7 +27,7 @@
 #include "gui/UBActionPalette.h"
 #include "UBPodcastController.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBVuMeter;
 

@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSMEDIAITEMDELEGATE_H_
 #define UBGRAPHICSMEDIAITEMDELEGATE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <phonon/MediaObject>
 #include <QTimer>
 

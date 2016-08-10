@@ -24,7 +24,7 @@
 #ifndef UBPODCASTCONTROLLER_H_
 #define UBPODCASTCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBAbstractVideoEncoder.h"
 

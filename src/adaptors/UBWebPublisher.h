@@ -24,7 +24,7 @@
 #ifndef UBWEBPUBLISHER_H_
 #define UBWEBPUBLISHER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBExportAdaptor.h"
 

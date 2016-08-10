@@ -24,7 +24,7 @@
 #ifndef CRASHREPORTERSYMBOLSUPPLIER_H_
 #define CRASHREPORTERSYMBOLSUPPLIER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "google_breakpad/processor/symbol_supplier.h"
 
 using std::string;

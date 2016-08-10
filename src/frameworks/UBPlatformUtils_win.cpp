@@ -23,7 +23,7 @@
 
 #include "UBPlatformUtils.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QProcess>
 #include <windows.h>
 #include <shellapi.h>

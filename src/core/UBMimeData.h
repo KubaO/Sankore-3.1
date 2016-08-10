@@ -24,7 +24,7 @@
 #ifndef UBMIMEDATA_H_
 #define UBMIMEDATA_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBDocumentProxy;
 class UBItem;

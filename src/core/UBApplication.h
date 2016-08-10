@@ -24,7 +24,7 @@
 #ifndef UBAPPLICATION_H_
 #define UBAPPLICATION_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "qtsingleapplication.h"
 
@@ -143,7 +143,7 @@ class UBApplication : public QtSingleApplication
 
         UBPreferencesController* mPreferencesController;
         QTranslator* mApplicationTranslator;
-        QTranslator* mQtGuiTranslator;
+        QTranslator* mQtWidgetsTranslator;
 
 };
 

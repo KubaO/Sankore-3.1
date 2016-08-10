@@ -24,7 +24,7 @@
 #ifndef UBMESSAGEWINDOW_H_
 #define UBMESSAGEWINDOW_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBFloatingPalette.h"
 

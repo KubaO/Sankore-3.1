@@ -24,7 +24,7 @@
 #ifndef UBTHUMBNAILWIDGET_H_
 #define UBTHUMBNAILWIDGET_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 #include <QTime>
 #include <QGraphicsSceneHoverEvent>

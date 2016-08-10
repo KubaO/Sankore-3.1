@@ -24,7 +24,7 @@
 #ifndef UBDOCUMENTCONTROLLER_H_
 #define UBDOCUMENTCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "document/UBDocumentContainer.h"
 #include "core/UBApplicationController.h"
 #include "core/UBApplication.h"

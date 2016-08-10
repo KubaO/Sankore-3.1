@@ -24,7 +24,7 @@
 #ifndef UBIMPORTDOCUMENT_H_
 #define UBIMPORTDOCUMENT_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "UBImportAdaptor.h"
 
 class UBDocumentProxy;

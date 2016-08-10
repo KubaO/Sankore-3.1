@@ -65,7 +65,7 @@
 #ifndef WBTABWIDGET_H
 #define WBTABWIDGET_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 /*

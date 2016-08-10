@@ -24,7 +24,7 @@
 #ifndef UBEXPORTADAPTOR_H_
 #define UBEXPORTADAPTOR_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBDocumentProxy;
 

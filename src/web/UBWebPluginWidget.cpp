@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "pdf/UBWebPluginPDFWidget.h"
 #include "frameworks/UBFileSystemUtils.h"

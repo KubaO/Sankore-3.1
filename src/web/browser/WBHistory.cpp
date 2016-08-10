@@ -66,7 +66,7 @@
 
 #include "WBBrowserWindow.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 
 #include "core/UBSettings.h"

@@ -23,7 +23,7 @@
 
 #include "UBBoardController.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 #include <QDir>
 

@@ -24,7 +24,7 @@
 #ifndef UBGEOMETRYUTILS_H_
 #define UBGEOMETRYUTILS_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBGeometryUtils
 {

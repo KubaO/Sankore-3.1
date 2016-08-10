@@ -23,7 +23,7 @@
 
 #include "UBApplication.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtWebKit>
 #include <QtXml>
 #include <QFontDatabase>
@@ -112,7 +112,7 @@ static OSStatus ub_appleEventProcessor(const AppleEvent *ae, AppleEvent *event, 
 UBApplication::UBApplication(const QString &id, int &argc, char **argv) : QtSingleApplication(id, argc, argv)
   , mPreferencesController(NULL)
   , mApplicationTranslator(NULL)
-  , mQtGuiTranslator(NULL)
+  , mQtWidgetsTranslator(NULL)
 {
     staticMemoryCleaner = new QObject(0); // deleted in UBApplication destructor
 
@@ -198,9 +198,9 @@ UBApplication::~UBApplication()
         delete mApplicationTranslator;
         mApplicationTranslator = NULL;
     }
-    if(mQtGuiTranslator!=NULL){
-        delete mQtGuiTranslator;
-        mQtGuiTranslator = NULL;
+    if(mQtWidgetsTranslator!=NULL){
+        delete mQtWidgetsTranslator;
+        mQtWidgetsTranslator = NULL;
     }
 
     delete staticMemoryCleaner;
@@ -249,7 +249,7 @@ void UBApplication::setupTranslators(QStringList args)
     }
     else{
         mApplicationTranslator = new QTranslator(this);
-        mQtGuiTranslator = new QTranslator(this);
+        mQtWidgetsTranslator = new QTranslator(this);
         mApplicationTranslator->load(UBPlatformUtils::translationPath(QString("sankore_"),language));
         installTranslator(mApplicationTranslator);
 
@@ -263,8 +263,8 @@ void UBApplication::setupTranslators(QStringList args)
         }
 
         if(!qtGuiTranslationPath.isEmpty()){
-            mQtGuiTranslator->load(qtGuiTranslationPath);
-            installTranslator(mQtGuiTranslator);
+            mQtWidgetsTranslator->load(qtGuiTranslationPath);
+            installTranslator(mQtWidgetsTranslator);
         }
         else
             qDebug() << "Qt gui translation in " << language << " is not available";

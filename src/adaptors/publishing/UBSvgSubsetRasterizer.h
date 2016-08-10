@@ -24,7 +24,7 @@
 #ifndef UBSVGSUBSETRASTERIZER_H_
 #define UBSVGSUBSETRASTERIZER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBDocumentProxy;
 

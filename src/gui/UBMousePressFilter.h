@@ -24,7 +24,7 @@
 #ifndef UBMOUSEPRESSFILTER_H_
 #define UBMOUSEPRESSFILTER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 class UBMousePressFilter : public QObject
 {

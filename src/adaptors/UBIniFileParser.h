@@ -24,7 +24,7 @@
 #ifndef UBINIFILEPARSER_H_
 #define UBINIFILEPARSER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 /**
  * This class can parse a ini file format.

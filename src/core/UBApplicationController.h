@@ -24,7 +24,7 @@
 #ifndef UBAPPLICATIONCONTROLLER_H_
 #define UBAPPLICATIONCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QFtp>
 
 class UBBoardView;

@@ -21,7 +21,7 @@
 
 
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "UBMainWindow.h"
 #include "core/UBApplication.h"

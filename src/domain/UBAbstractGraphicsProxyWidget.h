@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSPROXYWIDGET_H_
 #define UBGRAPHICSPROXYWIDGET_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 
 #include "UBItem.h"

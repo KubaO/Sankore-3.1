@@ -24,7 +24,7 @@
 #ifndef UBSVGSUBSETADAPTOR_H_
 #define UBSVGSUBSETADAPTOR_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtXml>
 
 #include "frameworks/UBGeometryUtils.h"

@@ -23,7 +23,7 @@
 #ifndef WB_TRAP_WEB_PAGE_CONTENT_H
 #define WB_TRAP_WEB_PAGE_CONTENT_H
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QWebView>
 
 #include "WBWebView.h"

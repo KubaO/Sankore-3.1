@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSTEXTITEMDELEGATE_H_
 #define UBGRAPHICSTEXTITEMDELEGATE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include <QtSvg>
 

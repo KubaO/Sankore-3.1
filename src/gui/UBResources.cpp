@@ -23,7 +23,7 @@
 
 #include "UBResources.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/UBApplication.h"
 #include "core/UBSettings.h"

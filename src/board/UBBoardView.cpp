@@ -23,7 +23,7 @@
 
 #include "UBBoardView.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtXml>
 #include <QListView>
 

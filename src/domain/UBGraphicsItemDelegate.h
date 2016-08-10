@@ -24,7 +24,7 @@
 #ifndef UBGRAPHICSITEMDELEGATE_H_
 #define UBGRAPHICSITEMDELEGATE_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtSvg>
 #include <QMimeData>
 

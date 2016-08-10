@@ -67,7 +67,7 @@
 
 #include "WBUrlLineEdit.h"
 
-#include <QtGui>
+#include <QtWidgets>
 
 class WBSearchButton;
 

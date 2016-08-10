@@ -24,7 +24,7 @@
 #ifndef UBTRAPFLASHCONTROLLER_H_
 #define UBTRAPFLASHCONTROLLER_H_
 
-#include <QtGui>
+#include <QtWidgets>
 #include "UBWebKitUtils.h"
 #include "web/browser/WBTrapWebPageContent.h"
 

@@ -23,7 +23,7 @@
 
 #include "UBMetadataDcSubsetAdaptor.h"
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QtXml>
 
 #include "core/UBSettings.h"

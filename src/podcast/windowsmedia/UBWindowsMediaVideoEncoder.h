@@ -25,7 +25,7 @@
 #define UBWINDOWSMEDIAVIDEOENCODER_H_
 
 
-#include <QtGui>
+#include <QtWidgets>
 #include "podcast/UBAbstractVideoEncoder.h"
 
 #include "UBWindowsMediaFile.h"

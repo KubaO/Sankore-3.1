@@ -23,7 +23,7 @@
 #include <limits>
 #include <QGraphicsItem>
 #include <QPointF>
-#include <QtGui>
+#include <QtWidgets>
 
 #include "core/UBApplication.h"
 #include "board/UBBoardController.h"
