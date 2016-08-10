@@ -25,7 +25,7 @@
 #define UBLIBRARYAPI_H_
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebKitWidgets>
 
 class UBLibraryAPI : public QObject
 {
