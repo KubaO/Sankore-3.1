@@ -25,7 +25,6 @@
 #define UBAPPLICATIONCONTROLLER_H_
 
 #include <QtWidgets>
-#include <QFtp>
 
 class UBBoardView;
 class UBDocumentProxy;
