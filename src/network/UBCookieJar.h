@@ -65,7 +65,7 @@
 #ifndef UBCOOKIEJAR_H
 #define UBCOOKIEJAR_H
 
-#include <QtNetwork/QNetworkCookieJar>
+#include <QNetworkCookieJar>
 
 #include <QtWidgets>
 

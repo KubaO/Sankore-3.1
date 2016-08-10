@@ -23,7 +23,7 @@
 #ifndef UBCFFADAPTOR_GLOBAL_H
 #define UBCFFADAPTOR_GLOBAL_H
 
-#include <QtCore/qglobal.h>
+#include <QtGlobal>
 
 #if defined(UBCFFADAPTOR_LIBRARY)
 #  define UBCFFADAPTORSHARED_EXPORT Q_DECL_EXPORT

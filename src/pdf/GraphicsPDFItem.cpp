@@ -23,9 +23,8 @@
 
 #include "GraphicsPDFItem.h"
 
-#include <qglobal.h>
-
-#include <QtWidgets/QStyleOptionGraphicsItem>
+#include <QtGlobal>
+#include <QStyleOptionGraphicsItem>
 
 #include "core/memcheck.h"
 

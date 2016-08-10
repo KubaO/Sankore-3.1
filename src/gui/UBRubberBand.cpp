@@ -24,11 +24,11 @@
 #include "UBRubberBand.h"
 
 #include <QtWidgets>
-#include <QtWidgets/QPlastiqueStyle>
+#include <QPlastiqueStyle>
 #include <QStyleFactory>
 
 #ifdef Q_WS_MAC
-#include <QtWidgets/QMacStyle>
+#include <QMacStyle>
 #endif
 
 #include "core/UBApplication.h"

@@ -1,7 +1,7 @@
 #include "UBAbstractGraphicsPathItem.h"
 #include <QBrush>
 #include <QTransform>
-#include <QtCore/qmath.h>
+#include <QtMath>
 
 UBAbstractGraphicsPathItem::UBAbstractGraphicsPathItem(QGraphicsItem *parent):
     UBAbstractGraphicsItem(parent)

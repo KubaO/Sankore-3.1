@@ -77,7 +77,7 @@
 
 #include <QtWidgets>
 #include <QtWebKit>
-#include <QtUiTools/QUiLoader>
+#include <QUiLoader>
 
 #include "core/memcheck.h"
 
