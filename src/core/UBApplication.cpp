@@ -157,8 +157,6 @@ UBApplication::UBApplication(const QString &id, int &argc, char **argv) : QtSing
     setWindowIcon(QIcon(":/images/uniboard.png"));
 #endif
 
-    setStyle(new UBStyle()); // Style is owned and deleted by the application
-
     QString css = UBFileSystemUtils::readTextFile(UBPlatformUtils::applicationResourcesDirectory() + "/etc/Uniboard.css");
     if (css.length() > 0)
         setStyleSheet(css);
@@ -670,39 +668,6 @@ void UBApplication::cleanup()
     webController = NULL;
     documentController = NULL;
     mUniboardSankoreTransition = NULL;
-}
-
-void UBStyle::drawItemText(QPainter *painter, const QRect &rect, int alignment, const QPalette &pal,
-                          bool enabled, const QString& text, QPalette::ColorRole textRole) const
-{
-    if (text.isEmpty())
-        return;
-
-    QPen savedPen;
-    if (textRole != QPalette::NoRole)
-    {
-        savedPen = painter->pen();
-        painter->setPen(QPen(pal.brush(textRole), savedPen.widthF()));
-    }
-
-    if (!enabled)
-    {
-        QPen pen = painter->pen();
-        QColor half = pen.color();
-
-        half.setRed(half.red() / 2);
-        half.setGreen(half.green() / 2);
-        half.setBlue(half.blue() / 2);
-
-        painter->setPen(half);
-        painter->drawText(rect, alignment, text);
-        painter->setPen(pen);
-    }
-
-    painter->drawText(rect, alignment, text);
-
-    if (textRole != QPalette::NoRole)
-        painter->setPen(savedPen);
 }
 
 QString UBApplication::urlFromHtml(QString html)

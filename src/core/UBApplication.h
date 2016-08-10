@@ -147,29 +147,4 @@ class UBApplication : public QtSingleApplication
 
 };
 
-
-class UBStyle : public QPlastiqueStyle
-{
-    public:
-
-        UBStyle()
-            : QPlastiqueStyle()
-        {
-            // NOOP
-        }
-
-        virtual ~UBStyle()
-        {
-           // NOOP
-        }
-
-        /*
-         * redefined to be more cocoa like on texts
-         */
-        virtual void drawItemText(QPainter *painter, const QRect &rect, int alignment, const QPalette &pal,
-                                  bool enabled, const QString& text, QPalette::ColorRole textRole) const;
-
-
-};
-
 #endif /* UBAPPLICATION_H_ */
