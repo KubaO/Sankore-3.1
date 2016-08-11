@@ -1,6 +1,8 @@
 #include "UBDragableThumbnail.h"
 
 #include <QPainter>
+#include <QMimeData>
+#include <QDrag>
 
 UBDraggableThumbnail::UBDraggableThumbnail(QWidget* parent, const QPixmap& pixmap) :
     QFrame(parent)
