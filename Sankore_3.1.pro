@@ -64,12 +64,8 @@ INCLUDEPATH += plugins/cffadaptor/src
 
 
 #ThirdParty
-DEPENDPATH += $$THIRD_PARTY_PATH/quazip/
-INCLUDEPATH += $$THIRD_PARTY_PATH/quazip/
 include($$THIRD_PARTY_PATH/quazip/quazip.pri)
-DEPENDPATH += $$THIRD_PARTY_PATH/trolltech/singleapplication
-INCLUDEPATH += $$THIRD_PARTY_PATH/trolltech/singleapplication
-include($$THIRD_PARTY_PATH/trolltech/singleapplication/qtsingleapplication.pri)
+include($$THIRD_PARTY_PATH/qtsingleapplication/src/qtsingleapplication.pri)
 
 FORMS += resources/forms/mainWindow.ui \
    resources/forms/preferences.ui \
