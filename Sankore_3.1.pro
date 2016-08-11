@@ -155,9 +155,9 @@ macx {
    QMAKE_CXXFLAGS_RELEASE += -gdwarf-2 \
        -mdynamic-no-pic
 
-   QMAKE_CFLAGS += -fopenmp
-   QMAKE_CXXFLAGS += -fopenmp
-   QMAKE_LFLAGS += -fopenmp
+   QMAKE_CFLAGS += -openmp
+   QMAKE_CXXFLAGS += -openmp
+   QMAKE_LFLAGS += -openmp
 
    CONTENTS_DIR = "Contents"
    RESOURCES_DIR = "Contents/Resources"
