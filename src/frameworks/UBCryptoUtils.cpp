@@ -82,7 +82,7 @@ QString UBCryptoUtils::symetricEncrypt(const QString& clear)
 
     free(ciphertext);
 
-    return QString::fromAscii(cipheredData.toBase64());
+    return QString::fromLatin1(cipheredData.toBase64());
 }
 
 

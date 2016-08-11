@@ -1851,7 +1851,7 @@ UBItem *UBBoardController::downloadFinished(bool pSuccess, QUrl sourceUrl, QUrl 
     else if(UBMimeType::Bookmark){
         QFile file(sourceUrl.toLocalFile());
         file.open(QIODevice::ReadOnly);
-        addLinkToPage(QString::fromAscii(file.readAll()),QSize(640,480),pPos);
+        addLinkToPage(QString::fromUtf8(file.readAll()),QSize(640,480),pPos);
         file.close();
     }
     else
