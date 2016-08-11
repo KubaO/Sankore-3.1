@@ -25,8 +25,8 @@
 #define UBGRAPHICSITEMSACTIONS_H
 
 #include <QObject>
-#include <phonon>
-
+#include <phonon/MediaObject>
+#include <phonon/AudioOutput>
 
 enum eUBGraphicsItemMovePageAction {
     eMoveToFirstPage = 0,
