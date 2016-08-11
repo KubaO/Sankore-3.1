@@ -66,6 +66,8 @@
 
 #include "core/memcheck.h"
 
+#include <QtScript>
+
 UBApplicationController::UBApplicationController(UBBoardView *pControlView,
                                                  UBBoardView *pDisplayView,
                                                  UBMainWindow* pMainWindow,
