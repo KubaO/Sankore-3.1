@@ -84,7 +84,7 @@ int CrashWindow::PrintRegister(const char *name, u_int32_t value, int sequence) 
 	char buf[BufSize];
 
 	snprintf(buf, BufSize, "%6s = 0x%08x ", name, value);
-	QString str = QString::fromAscii(buf);
+	QString str = QString::fromLatin1(buf);
 	mReport.append(str);
 	return ++sequence;
 }
@@ -101,7 +101,7 @@ void CrashWindow::PrintStack(const CallStack* stack, const string &cpu) {
     size_t BufSize = 2000;
 	char buf[BufSize];
 	snprintf(buf, BufSize, "%2d ", frame_index);
-	mReport.append(QString::fromAscii(buf));
+	mReport.append(QString::fromLatin1(buf));
 
     if (module) {
       // Module name (20 chars max)
@@ -109,13 +109,13 @@ void CrashWindow::PrintStack(const CallStack* stack, const string &cpu) {
       int maxStr = 20;
       buffer[maxStr] = 0;
       snprintf(buf, BufSize, "%-*s", maxStr, buffer);
-      mReport.append(QString::fromAscii(buf));
+      mReport.append(QString::fromLatin1(buf));
 
 
       strcpy(buffer, module->version().c_str());
       buffer[maxStr] = 0;
       snprintf(buf, BufSize, "%-*s",maxStr, buffer);
-      mReport.append(QString::fromAscii(buf));
+      mReport.append(QString::fromLatin1(buf));
 
       u_int64_t instruction = frame->instruction;
 
@@ -125,21 +125,21 @@ void CrashWindow::PrintStack(const CallStack* stack, const string &cpu) {
       if (cpu == "ppc" && frame_index)
         instruction += 4;
       snprintf(buf, BufSize, " 0x%08llx ", instruction);
-      mReport.append(QString::fromAscii(buf));
+      mReport.append(QString::fromLatin1(buf));
 
       // Function name
       if (!frame->function_name.empty()) {
           snprintf(buf, BufSize, "%s", frame->function_name.c_str());
-          mReport.append(QString::fromAscii(buf));
+          mReport.append(QString::fromLatin1(buf));
         if (!frame->source_file_name.empty()) {
           string source_file = PathnameStripper::File(frame->source_file_name);
           snprintf(buf, BufSize, " + 0x%llx (%s:%d)",
                   instruction - frame->source_line_base,
                   source_file.c_str(), frame->source_line);
-          mReport.append(QString::fromAscii(buf));
+          mReport.append(QString::fromLatin1(buf));
         } else {
             snprintf(buf, BufSize, " + 0x%llx", instruction - frame->function_base);
-            mReport.append(QString::fromAscii(buf));
+            mReport.append(QString::fromLatin1(buf));
         }
       }
     }
@@ -236,7 +236,7 @@ void CrashWindow::PrintModules(const CodeModules *modules) {
 	           main_module != NULL && base_address == main_address ?
 	           "  (main)" : "",
 	           module->code_file().c_str());
-	mReport.append(QString::fromAscii(buf));
+	mReport.append(QString::fromLatin1(buf));
   }
 }
 
@@ -270,18 +270,18 @@ void CrashWindow::showReport()
 	char buf[BufSize];
 	strftime(timestr, 20, "%Y-%m-%d %H:%M:%S", &timestruct);
 	snprintf(buf, BufSize, "Date: %s GMT\n", timestr);
-	mReport.append(QString::fromAscii(buf));
+	mReport.append(QString::fromLatin1(buf));
 	snprintf(buf, BufSize, "Operating system: %s (%s)\n", system_info->os.c_str(),
 			system_info->os_version.c_str());
-	mReport.append(QString::fromAscii(buf));
+	mReport.append(QString::fromLatin1(buf));
 	snprintf(buf, BufSize, "Architecture: %s\n", cpu.c_str());
-	mReport.append(QString::fromAscii(buf));
+	mReport.append(QString::fromLatin1(buf));
 
 	if (process_state.crashed()) {
 		snprintf(buf, BufSize, "Crash reason:  %s\n", process_state.crash_reason().c_str());
-		mReport.append(QString::fromAscii(buf));
+		mReport.append(QString::fromLatin1(buf));
 		snprintf(buf, BufSize, "Crash address: 0x%llx\n", process_state.crash_address());
-		mReport.append(QString::fromAscii(buf));
+		mReport.append(QString::fromLatin1(buf));
 	} else {
 		mReport.append("No crash\n");
 	}
@@ -293,7 +293,7 @@ void CrashWindow::showReport()
 				requesting_thread,
 				process_state.crashed() ? "crashed" :
 		"requested dump, did not crash");
-		mReport.append(QString::fromAscii(buf));
+		mReport.append(QString::fromLatin1(buf));
 		PrintStack(process_state.threads()->at(requesting_thread), cpu);
 	}
 
@@ -304,7 +304,7 @@ void CrashWindow::showReport()
 			// Don't print the crash thread again, it was already printed.
 			mReport.append("\n");
 			snprintf(buf, BufSize,"Thread %d\n", thread_index);
-			mReport.append(QString::fromAscii(buf));
+			mReport.append(QString::fromLatin1(buf));
 			PrintStack(process_state.threads()->at(thread_index), cpu);
 		}
 	}
@@ -312,7 +312,7 @@ void CrashWindow::showReport()
 	// Print the crashed registers
 	if (requesting_thread != -1) {
 		snprintf(buf, BufSize,"\nThread %d:", requesting_thread);
-		mReport.append(QString::fromAscii(buf));
+		mReport.append(QString::fromLatin1(buf));
 		PrintRegisters(process_state.threads()->at(requesting_thread), cpu);
 	}
 
