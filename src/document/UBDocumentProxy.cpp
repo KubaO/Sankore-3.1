@@ -268,7 +268,7 @@ void UBDocumentProxy::setHasDefaultImageBackground(const bool hasDefault)
    }
 }
 
-const bool UBDocumentProxy::hasDefaultImageBackground() const
+bool UBDocumentProxy::hasDefaultImageBackground() const
 {
     return mHasDefaultImageBackground;
 }

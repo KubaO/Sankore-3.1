@@ -83,7 +83,7 @@ class UBDocumentProxy : public QObject
 
         // Issue 1684 - CFA - 20131120
         void setHasDefaultImageBackground(const bool hasDefault);
-        const bool hasDefaultImageBackground() const;
+        bool hasDefaultImageBackground() const;
         void setDefaultImageBackground(const UBFeature& item);
         UBFeature& defaultImageBackground();
         const UBFeature& defaultImageBackground() const;

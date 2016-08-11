@@ -180,7 +180,7 @@ class UBGraphicsScene: public UBCoreGraphicsScene, public UBItem
         QUrl backgroundObjectUrl();
         void setBackgroundObjectUrl(QUrl url);
 
-        const UBFeatureBackgroundDisposition backgroundObjectDisposition() const
+        UBFeatureBackgroundDisposition backgroundObjectDisposition() const
         {
             return mBackgroundObjectDisposition;
         }
