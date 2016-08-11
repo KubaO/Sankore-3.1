@@ -91,11 +91,6 @@ int main(int argc, char *argv[])
 
     qInstallMsgHandler(ub_message_output);
 
-#if defined(Q_WS_X11)
-    qDebug() << "Setting GraphicsSystem to raster";
-    QApplication::setGraphicsSystem("raster");
-#endif
-
     UBApplication app("Sankore", argc, argv);
 
     //BUGFIX:
