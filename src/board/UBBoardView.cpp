@@ -52,7 +52,7 @@
 #include "board/UBBoardController.h"
 #include "board/UBBoardPaletteManager.h"
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 #include "desktop/UBDesktopAnnotationController.h"
 #include "desktop/UBDesktopPalette.h"
 #endif
@@ -393,7 +393,7 @@ void UBBoardView::tabletEvent (QTabletEvent * event)
 
     bool acceptEvent = true;
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     //Work around #1388. After selecting annotation tool in desktop mode, annotation view appears on top when
     //using Mac OS X. In this case tablet event should send mouse event so as to let user interact with
     //stylus palette.
@@ -961,7 +961,7 @@ void UBBoardView::setMultiselection(bool enable)
 }
 
 // work around for handling tablet events on MAC OS with Qt 4.8.0 and above
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
 bool UBBoardView::directTabletEvent(QEvent *event)
 {
     QTabletEvent *tEvent = static_cast<QTabletEvent *>(event);

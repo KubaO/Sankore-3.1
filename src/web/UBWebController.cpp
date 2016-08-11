@@ -193,7 +193,7 @@ void UBWebController::tutorialWebInstance()
 
     QString tutorialHtmlIndexFile = 0;
     QString tutorialPath = "/etc/Tutorial/tutorial" + language + "/index.html";
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     tutorialHtmlIndexFile = QApplication::applicationDirPath()+ "/../Resources" + tutorialPath;
 #else
     tutorialHtmlIndexFile = QApplication::applicationDirPath() + tutorialPath;
@@ -252,9 +252,9 @@ void UBWebController::paraschoolWebInstance()
     QString language = "_" + locale.name().left(2);
     QString editorPath = "/etc/SankoreEditor/editor" + language + "/index.html";
     QString editorHtmlIndexFile;
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     editorHtmlIndexFile = QApplication::applicationDirPath() + "/../Resources" + editorPath;
-#elif defined(Q_WS_WIN)
+#elif defined(Q_OS_WIN)
     editorHtmlIndexFile = QApplication::applicationDirPath() + editorPath;
 #else
     editorHtmlIndexFile = QApplication::applicationDirPath() + editorPath;
@@ -435,7 +435,7 @@ void UBWebController::setupPalettes()
     {
         (*mToolsCurrentPalette) = new UBWebToolsPalette(UBApplication::mainWindow, false);
         UBApplication::boardController->paletteManager()->setCurrentWebToolsPalette(*mToolsCurrentPalette);
-#ifndef Q_WS_WIN
+#ifndef Q_OS_WIN
         if (UBPlatformUtils::hasVirtualKeyboard() && UBApplication::boardController->paletteManager()->mKeyboardPalette)
             connect(UBApplication::boardController->paletteManager()->mKeyboardPalette, SIGNAL(closed()),
                     UBApplication::boardController->paletteManager()->mKeyboardPalette, SLOT(onDeactivated()));

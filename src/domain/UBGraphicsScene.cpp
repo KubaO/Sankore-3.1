@@ -302,7 +302,7 @@ UBGraphicsScene::UBGraphicsScene(UBDocumentProxy* parent, bool enableUndoRedoSta
     UBCoreGraphicsScene::setObjectName("BoardScene");
 #ifdef __ppc__
     mShouldUseOMP = false;
-#elif defined(Q_WS_MAC)
+#elif defined(Q_OS_MAC)
     mShouldUseOMP = QSysInfo::MacintoshVersion >= QSysInfo::MV_10_5;
 #endif
 

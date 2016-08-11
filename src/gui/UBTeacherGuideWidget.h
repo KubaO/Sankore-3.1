@@ -95,7 +95,7 @@ private slots:
     void setIsModified(bool isModified = true);
     void onActiveDocumentChanged();
 
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
     void onSliderMoved(int size);
 #endif
 };
@@ -135,7 +135,7 @@ private:
     QTreeWidgetItem* mpMediaSwitchItem;
 
 
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
 private slots:
     void onSliderMoved(int size);
 #endif

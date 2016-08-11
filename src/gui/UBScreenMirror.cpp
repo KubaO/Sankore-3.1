@@ -28,7 +28,7 @@
 #include "core/UBApplication.h"
 #include "board/UBBoardController.h"
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
 #include <ApplicationServices/ApplicationServices.h>
 #endif
 

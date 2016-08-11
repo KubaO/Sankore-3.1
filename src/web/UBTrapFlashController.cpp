@@ -70,7 +70,7 @@ void UBTrapWebPageContentController::text_Changed(const QString &newText)
 {
     QString new_text = newText;
 
-#ifdef Q_WS_WIN // Defined on Windows.
+#ifdef Q_OS_WIN // Defined on Windows.
     QString illegalCharList("      < > : \" / \\ | ? * ");
     QRegExp regExp("[<>:\"/\\\\|?*]");
 #endif
@@ -80,12 +80,12 @@ void UBTrapWebPageContentController::text_Changed(const QString &newText)
     QRegExp regExp("[<>:\"/\\\\|?*]");
 #endif
 
-#ifdef Q_WS_MAC // Defined on Mac OS X.
+#ifdef Q_OS_MAC // Defined on Mac OS X.
     QString illegalCharList("      < > : \" / \\ | ? * ");
     QRegExp regExp("[<>:\"/\\\\|?*]");
 #endif
 
-#ifdef Q_WS_X11 // Defined on X11.
+#ifdef Q_OS_LINUX // Defined on X11.
     QString illegalCharList("      < > : \" / \\ | ? * ");
     QRegExp regExp("[<>:\"/\\\\|?*]");
 #endif

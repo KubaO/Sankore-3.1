@@ -43,7 +43,7 @@ UBTeacherGuideResourceEditionWidget::UBTeacherGuideResourceEditionWidget(QWidget
     mpRootWidgetItem->addChild(mpAddAFileItem); //Issue 1716 - ALTI/AOU - 20140128
     mpRootWidgetItem->addChild(mpAddALinkItem);
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     // on mac and with the custom qt the widget on the tree are not automatically relocated when using the vertical scrollbar. To relocate them we link the valueChange signal of the vertical scrollbar with a local signal to trig a change and a repaint of the tree widget
     connect(mpTreeWidget->verticalScrollBar(),SIGNAL(valueChanged(int)),this,SLOT(onSliderMoved(int)));
 #endif
@@ -267,7 +267,7 @@ bool UBTeacherGuideResourceEditionWidget::hasUserDataInTeacherGuide()
         || (mpAddAFileItem->childCount() > 0);
 }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 void UBTeacherGuideResourceEditionWidget::onSliderMoved(int size)
 {
     Q_UNUSED(size);

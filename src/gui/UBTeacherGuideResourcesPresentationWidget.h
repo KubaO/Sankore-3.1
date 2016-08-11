@@ -37,7 +37,7 @@ private:
     QFrame *mpSeparator;
     QLabel* mpPageNumberLabel;
 
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
 private slots:
     void onSliderMoved(int size);
 #endif

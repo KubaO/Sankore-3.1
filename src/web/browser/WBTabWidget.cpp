@@ -103,7 +103,7 @@ WBTabBar::WBTabBar(QWidget *parent)
     setMovable(true);
     setDocumentMode(false);
 
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
     QFont baseFont = font();
     baseFont.setPointSize(baseFont.pointSize() - 2);
     setFont(baseFont);

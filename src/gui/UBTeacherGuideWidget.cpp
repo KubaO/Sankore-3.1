@@ -141,7 +141,7 @@ UBTeacherGuideEditionWidget::UBTeacherGuideEditionWidget(QWidget *parent, const 
     connect(mpPageTitle, SIGNAL(textChanged()), this, SLOT(setIsModified()));
     connect(mpComment, SIGNAL(textChanged()), this, SLOT(setIsModified()));
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     // on mac and with the custom qt the widget on the tree are not automatically relocated when using the vertical scrollbar. To relocate them we link the valueChange signal of the vertical scrollbar with a local signal to trig a change and a repaint of the tree widget
     connect(mpTreeWidget->verticalScrollBar(),SIGNAL(valueChanged(int)),this,SLOT(onSliderMoved(int)));
 #endif
@@ -193,7 +193,7 @@ void UBTeacherGuideEditionWidget::setIsModified(bool isModified /* = true */)
     mIsModified = isModified;
 }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 void UBTeacherGuideEditionWidget::onSliderMoved(int size)
 {
     if(mpAddAnActionItem)
@@ -533,7 +533,7 @@ UBTeacherGuidePresentationWidget::UBTeacherGuidePresentationWidget(QWidget *pare
     connect(mpTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(onAddItemClicked(QTreeWidgetItem*,int)));
     connect(UBApplication::boardController, SIGNAL(activeSceneChanged()), this, SLOT(onActiveSceneChanged()));
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     // on mac and with the custom qt the widget on the tree are not automatically relocated when using the vertical scrollbar. To relocate them we link the valueChange signal of the vertical scrollbar witht a local signal to trig a change and a repaint of the tree widget
     connect(mpTreeWidget->verticalScrollBar(),SIGNAL(valueChanged(int)),this,SLOT(onSliderMoved(int)));
 #endif
@@ -553,7 +553,7 @@ UBTeacherGuidePresentationWidget::~UBTeacherGuidePresentationWidget()
     DELETEPTR(mpLayout);
 }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 void UBTeacherGuidePresentationWidget::onSliderMoved(int size)
 {
     Q_UNUSED(size);
@@ -610,7 +610,7 @@ void UBTeacherGuidePresentationWidget::createMediaButtonItem()
 void UBTeacherGuidePresentationWidget::showData( QVector<tUBGEElementNode*> data)
 {
     cleanData();
- #ifdef Q_WS_MAC
+ #ifdef Q_OS_MAC
     if(mpMediaSwitchItem && mpMediaSwitchItem->isDisabled()){
         mpRootWidgetItem->removeChild(mpMediaSwitchItem);
         DELETEPTR(mpMediaSwitchItem);
@@ -664,7 +664,7 @@ void UBTeacherGuidePresentationWidget::showData( QVector<tUBGEElementNode*> data
         }
     }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     //HACK: on mac only this hack allows to correctly diplay a teacher bar containing only actions if those
     // actions need more that the vertical available space.
     // In this particular case if mpMediaSwitchItem isn't added to the widget tree then the vertical scrollbar
@@ -690,7 +690,7 @@ void UBTeacherGuidePresentationWidget::onAddItemClicked(QTreeWidgetItem* widget,
         case tUBTGActionAssociateOnClickItem_EXPAND:
             widget->setExpanded(!widget->isExpanded());
             if (widget->isExpanded()){
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(false);
@@ -699,7 +699,7 @@ void UBTeacherGuidePresentationWidget::onAddItemClicked(QTreeWidgetItem* widget,
                 mpMediaSwitchItem->setText(0, "-");
             }
             else{
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(true);
@@ -1573,7 +1573,7 @@ void UBTeacherGuidePageZeroWidget::onAddItemClicked(QTreeWidgetItem* widget, int
         case tUBTGActionAssociateOnClickItem_EXPAND: {
             widget->setExpanded(!widget->isExpanded());
             if (widget->isExpanded()){
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(false);
@@ -1583,7 +1583,7 @@ void UBTeacherGuidePageZeroWidget::onAddItemClicked(QTreeWidgetItem* widget, int
             }
             else
             {
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(true);

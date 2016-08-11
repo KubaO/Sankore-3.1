@@ -55,7 +55,7 @@ class UBBoardView : public QGraphicsView
         void setMultiselection(bool enable);
         bool isMultipleSelectionEnabled() { return mMultipleSelectionIsEnabled; }
 // work around for handling tablet events on MAC OS with Qt 4.8.0 and above
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
         bool directTabletEvent(QEvent *event);
         QWidget *widgetForTabletEvent(QWidget *w, const QPoint &pos);
 #endif

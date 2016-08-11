@@ -275,7 +275,7 @@ void UBThumbnailWidget::mousePressEvent(QMouseEvent *event)
         mPrevLassoRect = QRect();
         mLassoRectItem = new QGraphicsRectItem(0, scene());
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
         // The following code must stay in synch with <Qt installation folder>\src\gui\styles\qmacstyle_mac.mm
         QColor strokeColor;
         strokeColor.setHsvF(0, 0, 0.86, 1.0);

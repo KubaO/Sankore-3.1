@@ -159,7 +159,7 @@ void UBDesktopPalette::minimizeMe(eMinimizedLocation location)
     //issue 1621 - NNE - 20131113 : Avoid to recenter the palette when minimized
     adjustSizeAndPosition(true, false);
 
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
         emit refreshMask();
 #endif
 }
@@ -191,7 +191,7 @@ void UBDesktopPalette::maximizeMe()
     // Notify that the maximization has been done
     emit maximized();
 
-#ifdef Q_WS_X11
+#ifdef Q_OS_LINUX
         emit refreshMask();
 #endif
 }

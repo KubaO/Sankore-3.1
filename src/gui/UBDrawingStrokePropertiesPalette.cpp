@@ -133,7 +133,7 @@ void UBDrawingStrokePropertiesPalette::onBtnSelectStrokeColor()
     QColorDialog colorPicker(this);
     colorPicker.setOption(QColorDialog::ShowAlphaChannel);
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     colorPicker.setOption(QColorDialog::DontUseNativeDialog);
 #endif
 

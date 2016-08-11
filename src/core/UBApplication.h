@@ -122,7 +122,7 @@ class UBApplication : public QtSingleApplication
     private slots:
 
         void closing();
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
         void showMinimized();
 #endif
         void importUniboardFiles();
@@ -136,11 +136,6 @@ class UBApplication : public QtSingleApplication
         bool mIsVerbose;
         QString checkLanguageAvailabilityForSankore(QString& language);
     protected:
-
-#if defined(Q_WS_MACX) && !defined(QT_MAC_USE_COCOA)
-        bool macEventFilter(EventHandlerCallRef caller, EventRef event);
-#endif
-
         UBPreferencesController* mPreferencesController;
         QTranslator* mApplicationTranslator;
         QTranslator* mQtWidgetsTranslator;

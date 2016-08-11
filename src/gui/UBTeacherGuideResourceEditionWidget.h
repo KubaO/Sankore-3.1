@@ -38,7 +38,7 @@ public slots:
 
 private slots:
     void onActiveDocumentChanged();
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
     void onSliderMoved(int size);
 #endif
 

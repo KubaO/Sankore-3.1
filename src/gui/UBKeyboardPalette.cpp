@@ -534,7 +534,7 @@ UBKeyButton::~UBKeyButton()
 
 bool UBKeyButton::shifted()
 {
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
     return keyboard->shift;
 #else
     bool b = keyboard->shift;
@@ -553,7 +553,7 @@ void UBKeyButton::onPress()
 {
     if (keybt!=NULL)
     {
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
         int codeIndex = keyboard->nSpecialModifierIndex + (shifted())?1:(capsed() ? 2 : 0); 
 #else
         int codeIndex = keyboard->nSpecialModifierIndex * 2 + shifted();
@@ -575,7 +575,7 @@ void UBKeyButton::onPress()
         else
         {
 
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
             int nSpecialModifierIndex;
 
             if (shifted())
@@ -615,7 +615,7 @@ void UBKeyButton::paintContent(QPainter& painter)
 {
     if (keybt)
     {
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
         QString text(QChar(shifted() ? keybt->shiftedSymbol : (capsed() ? keybt->capsedSymbol : keybt->simpleSymbol)));
 #else
         QString text(QChar(shifted() ? keybt->shiftedSymbol : keybt->simpleSymbol));

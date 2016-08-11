@@ -637,7 +637,7 @@ void UBQuickTimeFile::appendAudioBuffer(void* pBuffer, long pLength, int inNumbe
             }
         }
     }
-#ifdef Q_WS_MACX
+#ifdef Q_OS_MAC
     free((void*)inPacketDescs);
 #endif
 }

@@ -50,7 +50,7 @@ UBTeacherGuideResourcesPresentationWidget::UBTeacherGuideResourcesPresentationWi
 
     connect(mpTreeWidget, SIGNAL(itemClicked(QTreeWidgetItem*,int)), this, SLOT(onAddItemClicked(QTreeWidgetItem*,int)));
     connect(UBApplication::boardController, SIGNAL(activeSceneChanged()), this, SLOT(onActiveSceneChanged()));
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
     // on mac and with the custom qt the widget on the tree are not automatically relocated when using the vertical scrollbar. To relocate them we link the valueChange signal of the vertical scrollbar witht a local signal to trig a change and a repaint of the tree widget
     connect(mpTreeWidget->verticalScrollBar(),SIGNAL(valueChanged(int)),this,SLOT(onSliderMoved(int)));
 #endif
@@ -70,7 +70,7 @@ UBTeacherGuideResourcesPresentationWidget::~UBTeacherGuideResourcesPresentationW
 void UBTeacherGuideResourcesPresentationWidget::showData( QVector<tUBGEElementNode*> data)
 {
     cleanData();
- #ifdef Q_WS_MAC
+ #ifdef Q_OS_MAC
     if(mpMediaSwitchItem && mpMediaSwitchItem->isDisabled()){
         mpRootWidgetItem->removeChild(mpMediaSwitchItem);
         DELETEPTR(mpMediaSwitchItem);
@@ -86,7 +86,7 @@ void UBTeacherGuideResourcesPresentationWidget::showData( QVector<tUBGEElementNo
             newWidgetItem->setData(0, tUBTGTreeWidgetItemRole_HasAnAction, tUBTGActionAssociateOnClickItem_MEDIA);
             newWidgetItem->setData(0, Qt::FontRole, QVariant(QFont(QApplication::font().family(), 11)));
             QString mimeTypeString;
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
             mimeTypeString = QUrl::fromLocalFile(UBApplication::boardController->selectedDocument()->persistencePath()+ "/" + element->attributes.value("relativePath")).toString();
 #else
             mimeTypeString = UBApplication::boardController->selectedDocument()->persistencePath() + "/" + element->attributes.value("relativePath");
@@ -171,7 +171,7 @@ void UBTeacherGuideResourcesPresentationWidget::onAddItemClicked(QTreeWidgetItem
         case tUBTGActionAssociateOnClickItem_EXPAND:
             widget->setExpanded(!widget->isExpanded());
             if (widget->isExpanded()){
-    #ifdef Q_WS_MAC
+    #ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(false);
@@ -180,7 +180,7 @@ void UBTeacherGuideResourcesPresentationWidget::onAddItemClicked(QTreeWidgetItem
                 mpMediaSwitchItem->setText(0, "-");
             }
             else{
-    #ifdef Q_WS_MAC
+    #ifdef Q_OS_MAC
                 for(int i = 0 ; i < mpMediaSwitchItem->childCount(); i+=1 ){
                     QTreeWidgetItem* eachItem = mpMediaSwitchItem->child(i);
                     eachItem->setHidden(true);
@@ -233,7 +233,7 @@ bool UBTeacherGuideResourcesPresentationWidget::eventFilter(QObject* object, QEv
     return false;
 }
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
 void UBTeacherGuideResourcesPresentationWidget::onSliderMoved(int size)
 {
     Q_UNUSED(size);

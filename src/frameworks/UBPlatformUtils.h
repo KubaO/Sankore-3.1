@@ -90,7 +90,7 @@ struct KEYBT
 {
     QChar simpleSymbol;
     QChar shiftedSymbol;
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
     QChar capsedSymbol;
 #else
     bool capsLockSwitch;
@@ -102,14 +102,14 @@ struct KEYBT
 
     KEYBT(  QChar _simple,
             QChar _shifted,
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
             QChar _capsed,
 #else 
             bool _capsLockSwitch,
 #endif
             int _modNo,
             int _modShift,
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
             int _modCaps,
 #endif
             KEYCODE c1 = 0,
@@ -122,14 +122,14 @@ struct KEYBT
             KEYCODE c8 = 0)
                 :simpleSymbol(_simple)
                 ,shiftedSymbol(_shifted)
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
                 ,capsedSymbol(_capsed)
 #else
                 ,capsLockSwitch(_capsLockSwitch)
 #endif
                 ,modifierNo(_modNo)
                 ,modifierShift(_modShift)
-#if defined(Q_WS_MACX)
+#if defined(Q_OS_MAC)
                 ,modifierCaps(_modCaps)
 #endif
     {
@@ -221,7 +221,7 @@ public:
         static QString urlFromClipboard();
         static QStringList availableTranslations();
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_MAC
         static void SetMacLocaleByIdentifier(const QString& id);
 #endif
 };
