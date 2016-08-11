@@ -134,14 +134,6 @@ macx {
    #LIBS += -framework AppKit
    #LIBS += -framework WebKit
 
-   CONFIG(release, debug|release):CONFIG += x86
-
-   # [03-02-2011] We must use the 32bit version for the moment
-   # because the Quicktime components used by this application
-   # are not yet available in 64bits.
-   CONFIG(debug, debug|release):CONFIG += x86
-
-   #QMAKE_MAC_SDK = "macosx10.8"
    QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 
    VERSION_RC_PATH = "$$BUILD_DIR/version_rc"
