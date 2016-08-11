@@ -609,9 +609,7 @@ void UBPlatformUtils::SetMacLocaleByIdentifier(const QString& id)
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-    const char * strName = id.toAscii().data();
-
-    CFStringRef iName = CFStringCreateWithCString(NULL, strName, kCFStringEncodingMacRoman );
+    CFStringRef iName = id.toCFString();
 
     CFStringRef keys[] = { kTISPropertyInputSourceCategory, kTISPropertyInputSourceID };
     CFStringRef values[] = { kTISCategoryKeyboardInputSource, iName };
