@@ -25,7 +25,7 @@
 #define WBWEBTRAPWEBVIEW_H_
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebKitWidgets>
 
 
 class WBWebTrapWebView : public QWebView
