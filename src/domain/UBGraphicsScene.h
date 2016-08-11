@@ -140,7 +140,7 @@ class UBGraphicsScene: public UBCoreGraphicsScene, public UBItem
         void leaveEvent (QEvent* event);
 
         void addItem(QGraphicsItem* item);
-        void removeItem(QGraphicsItem* item);
+        void removeItem(QGraphicsItem* item, bool forceDelete = false);
 
         void addItems(const QSet<QGraphicsItem*>& item);
         void removeItems(const QSet<QGraphicsItem*>& item);

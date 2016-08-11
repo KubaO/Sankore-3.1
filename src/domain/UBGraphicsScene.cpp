@@ -1726,11 +1726,11 @@ void UBGraphicsScene::addItems(const QSet<QGraphicsItem*>& items)
     mFastAccessItems += items.toList();
 }
 
-void UBGraphicsScene::removeItem(QGraphicsItem* item)
+void UBGraphicsScene::removeItem(QGraphicsItem* item, bool forceDelete)
 {
     item->setSelected(false);
 
-    UBCoreGraphicsScene::removeItem(item);
+    UBCoreGraphicsScene::removeItem(item, forceDelete);
 
     UBApplication::boardController->freezeW3CWidget(item, true);
 
