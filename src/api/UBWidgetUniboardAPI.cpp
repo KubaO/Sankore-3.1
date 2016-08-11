@@ -585,7 +585,7 @@ void UBWidgetUniboardAPI::ProcessDropEvent(QGraphicsSceneDragDropEvent *event)
             QString str = "test string";
 
             QMimeData mimeData;
-            mimeData.setData(tMimeText, str.toAscii());
+            mimeData.setData(tMimeText, str.toLatin1());
 
             sDownloadFileDesc desc;
             desc.dest = sDownloadFileDesc::graphicsWidget;
@@ -631,7 +631,7 @@ void UBWidgetUniboardAPI::ProcessDropEvent(QGraphicsSceneDragDropEvent *event)
     // Ev-5.1 - CFA - 20140109 : correction drop RTE
     UBFeaturesController* c = UBApplication::boardController->paletteManager()->featuresWidget()->getFeaturesController();
     if (c->getFeatureByFullPath(mGraphicsWidget->sourceUrl().toLocalFile()).getType() != FEATURE_RTE)
-        dropMimeData->setData(tMimeText, mimeText.toAscii());
+        dropMimeData->setData(tMimeText, mimeText.toLatin1());
 
     if (mGraphicsWidget->page() && mGraphicsWidget->page()->mainFrame()) {
         mGraphicsWidget
@@ -688,7 +688,7 @@ void UBWidgetUniboardAPI::onDownloadFinished(bool pSuccess, sDownloadFileDesc de
 
     QMimeData dropMimeData;
     QString mimeText = createMimeText(true, contentType, destFileName);
-    dropMimeData.setData(tMimeText, mimeText.toAscii());
+    dropMimeData.setData(tMimeText, mimeText.toLatin1());
 
     destFile.close();
 

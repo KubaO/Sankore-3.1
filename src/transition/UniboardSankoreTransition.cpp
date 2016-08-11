@@ -143,7 +143,7 @@ bool UniboardSankoreTransition::checkPage(QString& sankorePagePath)
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return false;
 
-    file.write(documentString.toAscii());
+    file.write(documentString.toLatin1());
     file.close();
 
     return true;
@@ -195,7 +195,7 @@ bool UniboardSankoreTransition::checkWidget(QString& sankoreWidgetIndexPath)
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return false;
 
-    file.write(documentString.toAscii());
+    file.write(documentString.toLatin1());
     file.close();
 
     return true;

@@ -714,7 +714,7 @@ void UBTGMediaWidget::removeSource()
 void UBTGMediaWidget::hideEvent(QHideEvent* event)
 {
     if(mpWebView)
-        mpWebView->page()->mainFrame()->setContent(UBGraphicsW3CWidgetItem::freezedWidgetPage().toAscii());
+        mpWebView->page()->mainFrame()->setContent(UBGraphicsW3CWidgetItem::freezedWidgetPage().toLatin1());
     QWidget::hideEvent(event);
 }
 

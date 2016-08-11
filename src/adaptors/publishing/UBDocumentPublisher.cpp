@@ -632,17 +632,17 @@ void UBDocumentPublisher::sendUbw(QString username, QString password)
             data+="--"+boundary+mCrlf;
             data+="Content-Disposition: form-data; name=\"file\"; filename=\""+ fi.fileName() +"\""+mCrlf;
             data+="Content-Type: application/octet-stream"+mCrlf+mCrlf;
-            datatoSend=data.toAscii(); // convert data string to byte array for request
+            datatoSend=data.toLatin1(); // convert data string to byte array for request
             datatoSend += ba;
             datatoSend += mCrlf;
             datatoSend += QString("--%0--%1").arg(boundary).arg(mCrlf);
 
-            QNetworkRequest request(QUrl(QString(DOCPUBLICATION_URL).toAscii().constData()));
+            QNetworkRequest request(QUrl(QString(DOCPUBLICATION_URL).toLatin1().constData()));
 
             request.setHeader(QNetworkRequest::ContentTypeHeader, multipartHeader);
             request.setHeader(QNetworkRequest::ContentLengthHeader,datatoSend.size());
             QString b64Auth = getBase64Of(QString("%0:%1").arg(username).arg(password));
-            request.setRawHeader("Authorization", QString("Basic %0").arg(b64Auth).toAscii().constData());
+            request.setRawHeader("Authorization", QString("Basic %0").arg(b64Auth).toLatin1().constData());
             request.setRawHeader("Host", "planete.sankore.org");
             request.setRawHeader("Accept", "*/*");
             request.setRawHeader("Accept-Language", "en-US,*");
@@ -658,7 +658,7 @@ void UBDocumentPublisher::sendUbw(QString username, QString password)
 
 QString UBDocumentPublisher::getBase64Of(QString stringToEncode)
 {
-    return stringToEncode.toAscii().toBase64();
+    return stringToEncode.toLatin1().toBase64();
 }
 
 // ---------------------------------------------------------

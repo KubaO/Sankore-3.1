@@ -1001,7 +1001,7 @@ void UBFeaturesController::createBookmark(const QString& fileName, const QString
 
     QFile file(mFileName);
     file.open(QIODevice::WriteOnly | QIODevice::Text);
-    file.write(urlString.toAscii());
+    file.write(urlString.toLatin1());
     file.close();
 
     QImage thumb = createThumbnail(mFileName);

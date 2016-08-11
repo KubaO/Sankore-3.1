@@ -316,8 +316,8 @@ void UBFeaturesWidget::onDisplayMetadata( QMap<QString,QString> metadata )
 {
     QString previewImageUrl = ":images/libpalette/notFound.png";
 
-    QString widgetsUrl = QUrl::fromEncoded(metadata["Url"].toAscii()).toString();
-    QString widgetsThumbsUrl = QUrl::fromEncoded(metadata["thumbnailUrl"].toAscii()).toString();
+    QString widgetsUrl = QUrl::fromEncoded(metadata["Url"].toLatin1()).toString();
+    QString widgetsThumbsUrl = QUrl::fromEncoded(metadata["thumbnailUrl"].toLatin1()).toString();
 
     if(!QFileInfo(metadata["Title"]).suffix().length() && QFileInfo(widgetsUrl).suffix().length())
         metadata.insert("Title",metadata["Title"] + "." + QFileInfo(widgetsUrl).suffix());
@@ -1408,7 +1408,7 @@ QMimeData* UBFeaturesModel::mimeData(const QModelIndexList &indexes) const
             if (!typeData.isNull()) {
                 typeData += UBFeaturesController::featureTypeSplitter();
             }
-            typeData += QString::number(element.getType()).toAscii();
+            typeData += QString::number(element.getType()).toLatin1();
         }
     }
 
