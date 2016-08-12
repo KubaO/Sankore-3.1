@@ -94,9 +94,11 @@ void UBPlatformUtils::init()
 }
 
 
+/// FIXME Check why the functor is null on OS X.
 void UBPlatformUtils::setDesktopMode(bool desktop)
 {
     OSStatus (*functor)(SystemUIMode, SystemUIOptions) = (OSStatus (*)(SystemUIMode, SystemUIOptions))originalSetSystemUIMode;
+    if (!functor) return;
 
     if (desktop)
     {
