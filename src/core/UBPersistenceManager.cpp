@@ -1124,7 +1124,7 @@ QString UBPersistenceManager::addObjectToTeacherGuideDirectory(UBDocumentProxy* 
 {
     QString path = UBFileSystemUtils::removeLocalFilePrefix(pPath);
     QFileInfo fi(path);
-    QString uuid = QUuid::createUuid();
+    QString uuid = QUuid::createUuid().toString();
 
     if (!fi.exists() || !pDocumentProxy)
         return "";
@@ -1156,7 +1156,7 @@ QString UBPersistenceManager::addWidgetToTeacherGuideDirectory(UBDocumentProxy* 
     if(lastIndex != -1)
         extension = path.right(path.length() - lastIndex);
 
-    QString uuid = QUuid::createUuid();
+    QString uuid = QUuid::createUuid().toString();
 
     if (!fi.exists() || !pDocumentProxy)
         return "";

@@ -554,7 +554,7 @@ void UBGraphicsTextItem::insertImage(QString src)
 
     QImage img = QImage(src);
     QString fileExtension = UBFileSystemUtils::extension(src);
-    QString filename = UBPersistenceManager::imageDirectory + "/" + QUuid::createUuid() + "." + fileExtension;
+    QString filename = UBPersistenceManager::imageDirectory + "/" + QUuid::createUuid().toString() + "." + fileExtension;
     QString dest = UBApplication::boardController->selectedDocument()->persistencePath() + "/" + filename;
 
     if (!UBFileSystemUtils::copy(src, dest, true))
@@ -866,7 +866,7 @@ QString UBGraphicsTextItem::loadImages(QString& source, bool onlyLoad)
             }else{
                 QImage img = QImage(path);
                 QString fileExtension = UBFileSystemUtils::extension(path);
-                QString filename = UBPersistenceManager::imageDirectory + "/" + QUuid::createUuid() + "." + fileExtension;
+                QString filename = UBPersistenceManager::imageDirectory + "/" + QUuid::createUuid().toString() + "." + fileExtension;
                 QString dest = UBApplication::boardController->selectedDocument()->persistencePath() + "/" + filename;
 
                 if (!UBFileSystemUtils::copy(path, dest, true))

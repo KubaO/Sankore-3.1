@@ -74,7 +74,7 @@ void UBAsyncLocalFileDownloader::run()
     if (descriptor.originalSrcUrl.isEmpty())
         descriptor.originalSrcUrl = descriptor.srcUrl;
 
-    QString uuid = QUuid::createUuid();
+    QString uuid = QUuid::createUuid().toString();
     UBPersistenceManager::persistenceManager()->addFileToDocument(UBApplication::boardController->selectedDocument(),
                                                                   descriptor.srcUrl,
                                                                   destDirectory,

@@ -1373,7 +1373,7 @@ void UBFeaturesController::addDownloadedFile(const QUrl &sourceUrl, const QByteA
         if(url.indexOf("?") != -1){
             url = url.left(url.indexOf("?"));
             fileName = pTitle.isEmpty() ? QFileInfo( url ).fileName() : pTitle;
-            filePath = QDir::tempPath() + "/" + QUuid::createUuid();
+            filePath = QDir::tempPath() + "/" + QUuid::createUuid().toString();
         }
         else{
             fileName = pTitle.isEmpty() ? QFileInfo( url ).fileName() : pTitle;

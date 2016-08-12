@@ -412,7 +412,7 @@ bool UBCFFSubsetAdaptor::UBCFFSubsetReader::parseSvgPolygon(const QDomElement &e
         mCurrentScene->addItem(graphicsPolygon);
 
         graphicsPolygon->setUuid(itemUuid);
-        mRefToUuidMap.insert(element.attribute(aId), itemUuid);
+        mRefToUuidMap.insert(element.attribute(aId), itemUuid.toString());
 
     }
     else // single CFF
@@ -435,7 +435,7 @@ bool UBCFFSubsetAdaptor::UBCFFSubsetReader::parseSvgPolygon(const QDomElement &e
         QString textTransform = element.attribute(aTransform);
         
         QUuid uuid = QUuid::createUuid().toString();
-        mRefToUuidMap.insert(element.attribute(aId), uuid);
+        mRefToUuidMap.insert(element.attribute(aId), uuid.toString());
         svgItem->setUuid(uuid);
 
         svgItem->resetTransform();
@@ -531,7 +531,7 @@ bool UBCFFSubsetAdaptor::UBCFFSubsetReader::parseSvgPolyline(const QDomElement &
         mCurrentScene->addItem(graphicsPolygon);
 
         graphicsPolygon->setUuid(itemUuid);
-        mRefToUuidMap.insert(element.attribute(aId), itemUuid);
+        mRefToUuidMap.insert(element.attribute(aId), itemUuid.toString());
 
     }
     else // simple CFF

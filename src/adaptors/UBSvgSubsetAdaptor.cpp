@@ -1744,7 +1744,7 @@ void UBSvgSubsetAdaptor::UBSvgSubsetWriter::persistGroupToDom(QGraphicsItem *gro
     QUuid uuid = UBGraphicsScene::getPersonalUuid(groupItem);
     if (!uuid.isNull()) {
         QDomElement curGroupElement = groupDomDocument->createElement(tGroup);
-        curGroupElement.setAttribute(aId, uuid);
+        curGroupElement.setAttribute(aId, uuid.toString());
         //persist delegate properties
         UBGraphicsGroupContainerItem* group = dynamic_cast<UBGraphicsGroupContainerItem*>(groupItem);
         if(group && group->Delegate()){
@@ -1774,7 +1774,7 @@ void UBSvgSubsetAdaptor::UBSvgSubsetWriter::persistGroupToDom(QGraphicsItem *gro
                 else {
                     QDomElement curSubElement = groupDomDocument->createElement(tElement);
 
-                    curSubElement.setAttribute(aId, tmpUuid);
+                    curSubElement.setAttribute(aId, tmpUuid.toString());
                     curGroupElement.appendChild(curSubElement);
                 }
             }

@@ -670,7 +670,7 @@ void UBWidgetUniboardAPI::onDownloadFinished(bool pSuccess, sDownloadFileDesc de
         }
     }
 
-    QString destFileName = objDir + QUuid::createUuid() + "." + extention;
+    QString destFileName = objDir + QUuid::createUuid().toString() + "." + extention;
     QFile destFile(destFileName);
 
     if (!destFile.open(QIODevice::WriteOnly)) {

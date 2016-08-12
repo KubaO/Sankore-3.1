@@ -797,7 +797,7 @@ void UBTGMediaWidget::createWorkWidget(bool forceFlashMediaType)
         mMediaType = "flash";
         if(!(mIsPresentationMode || mIsInitializationMode)){
             QDir baseW3CDirectory(UBPersistenceManager::persistenceManager()->teacherGuideAbsoluteObjectPath(proxyDocument));
-            mMediaPath = UBGraphicsW3CWidgetItem::createNPAPIWrapperInDir(mMediaPath,baseW3CDirectory,mimeType,QSize(100,100),QUuid::createUuid());
+            mMediaPath = UBGraphicsW3CWidgetItem::createNPAPIWrapperInDir(mMediaPath,baseW3CDirectory,mimeType,QSize(100,100),QUuid::createUuid().toString());
         }
         qDebug() << mMediaPath;
         mpWebView = new UBDraggableWeb(mMediaPath);
