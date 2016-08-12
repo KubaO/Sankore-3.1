@@ -84,7 +84,7 @@ class UBMainWindow : public QMainWindow, public Ui::MainWindow
 
 private:
 // work around for handling tablet events on MAC OS with Qt 4.8.0 and above
-#if defined(Q_OS_MAC)
+#if false && defined(Q_OS_MAC)
         bool event(QEvent *event);
 #endif
         UBDownloadWidget* mpDownloadWidget;

@@ -150,7 +150,7 @@ void UBMainWindow::closeEvent(QCloseEvent *event)
 }
 
 // work around for handling tablet events on MAC OS with Qt 4.8.0 and above
-#if defined(Q_OS_MAC)
+#if false && defined(Q_OS_MAC)
 bool UBMainWindow::event(QEvent *event)
 {
     bool bRes = QMainWindow::event(event);

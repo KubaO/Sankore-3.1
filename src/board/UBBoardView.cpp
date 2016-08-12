@@ -961,7 +961,8 @@ void UBBoardView::setMultiselection(bool enable)
 }
 
 // work around for handling tablet events on MAC OS with Qt 4.8.0 and above
-#if defined(Q_OS_MAC)
+/// FIXME This code is likely obsolete in Qt 5.
+#if false && defined(Q_OS_MAC)
 bool UBBoardView::directTabletEvent(QEvent *event)
 {
     QTabletEvent *tEvent = static_cast<QTabletEvent *>(event);
