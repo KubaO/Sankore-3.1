@@ -1591,7 +1591,7 @@ UBBoardView::wheelEvent (QWheelEvent *wheelEvent)
         QPointF scenePos = mapToScene(wheelEvent->pos());
         QList<QGraphicsItem *> itemsList = scene()->items(scenePos);
 
-        QBool isSlectedAndMouseHower = itemsList.contains(selItem);
+        bool isSlectedAndMouseHower = itemsList.contains(selItem);
         if(isSlectedAndMouseHower)
         {
             QGraphicsView::wheelEvent(wheelEvent);
