@@ -105,7 +105,7 @@ void UBAbstractGraphicsPathItem::drawArrows()
                 default:
                     break;
                 }
-                mStartArrowGraphicsItem = new QGraphicsPathItem(pathArrow, this, QGraphicsItem::scene());
+                mStartArrowGraphicsItem = new QGraphicsPathItem(pathArrow, this);
             }
 
             QPainterPath::Element firstElement = path().elementAt(0);
@@ -150,7 +150,7 @@ void UBAbstractGraphicsPathItem::drawArrows()
                 default:
                     break;
                 }
-                mEndArrowGraphicsItem = new QGraphicsPathItem(pathArrow, this, QGraphicsItem::scene());
+                mEndArrowGraphicsItem = new QGraphicsPathItem(pathArrow, this);
             }
 
             QPainterPath::Element lastElement = path().elementAt(nbElements-1);

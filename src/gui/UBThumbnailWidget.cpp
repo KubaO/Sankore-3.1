@@ -273,7 +273,8 @@ void UBThumbnailWidget::mousePressEvent(QMouseEvent *event)
         option.initFrom(&rubberBand);
 
         mPrevLassoRect = QRect();
-        mLassoRectItem = new QGraphicsRectItem(0, scene());
+        mLassoRectItem = new QGraphicsRectItem;
+        scene()->addItem(mLassoRectItem);
 
 #ifdef Q_OS_MAC
         // The following code must stay in synch with <Qt installation folder>\src\gui\styles\qmacstyle_mac.mm
