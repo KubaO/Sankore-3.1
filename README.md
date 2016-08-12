@@ -12,8 +12,8 @@ This is because:
 Of course the plan is to drop the use of QuickTime APIs, and use webengine
 from a 64-bit build.
 
-OS X
-====
+OS X Prerequisites
+==================
 
 You'll need a 32-bit install of Qt 5.5.1 with Chromium and Phonon. MacPorts
 doesn't provide one so you'll have to roll your own.
@@ -70,9 +70,22 @@ doesn't provide one so you'll have to roll your own.
     cmake ../phonon-4.9.0 -G Ninja \
       -DPHONON_BUILD_PHONON4QT5=ON \
       -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=ON \
-      -DCMAKE_PREFIX_PATH=(qt install folder) \
       -DPHONON_NO_DBUS=ON \
-      -DCMAKE_CXX_FLAGS="-arch i386"
+      -DCMAKE_CXX_FLAGS="-arch i386" \
+      -DCMAKE_PREFIX_PATH=(qt install folder)
+
+    For a debug build, add:
+    
+      -DCMAKE_BUILD_TYPE=debugfull \
+      -DPHONON_LIB_SONAME=phonon4qt5_debug
+      
+    Also modify CMakeLists.txt to use the PHONON_LIB_SONAME value given on the command line. Replace the
+    if(PHONON_BUILD_PHONON4QT5) section as follows:
+    
+    if(PHONON_BUILD_PHONON4QT5)
+        set(PHONON_LIB_SONAME phonon4qt5 CACHE STRING "The base library name")
+        set(PHONON_LIB_SONAME_CAMEL Phonon4Qt5 CACHE STRING "The base library name")
+    endif(PHONON_BUILD_PHONON4QT5)
  
  d) Build and install
  
@@ -82,7 +95,7 @@ doesn't provide one so you'll have to roll your own.
 	 
     ln -s /usr/local/include/phonon4qt5/phonon /usr/local/include/
  
-Ubuntu Linux
-============
+Ubuntu Linux Prerequisites
+==========================
 Fonts
 	- If you want to use the web compatible fonts, you need to install the package ttf-mscorefonts-installer.
