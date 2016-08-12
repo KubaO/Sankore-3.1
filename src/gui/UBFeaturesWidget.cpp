@@ -552,7 +552,7 @@ void UBFeaturesListView::dragMoveEvent( QDragMoveEvent *event )
 
 void UBFeaturesListView::dropEvent( QDropEvent *event )
 {
-    QWidget *eventSource = event->source();
+    QWidget *eventSource = qobject_cast<QWidget*>(event->source());
     if (eventSource && eventSource->objectName() == UBFeaturesWidget::objNameFeatureList) {
         event->setDropAction( Qt::MoveAction );
     }
