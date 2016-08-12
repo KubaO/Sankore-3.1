@@ -22,7 +22,6 @@
 
 
 #include <QtWidgets>
-#include <QTextCodec>
 
 #include "frameworks/UBPlatformUtils.h"
 #include "frameworks/UBFileSystemUtils.h"
@@ -89,15 +88,12 @@ int main(int argc, char *argv[])
 
     UBApplication app("Sankore", argc, argv);
 
-    //BUGFIX:
-    //when importing a sankore file that contains a non standard character
-    //the codecForLocale or the codecForCString is used to convert the file path
-    //into a const char*. This is why in french windows setup the codec name shouldn't be
-    //set to UTF-8. For example, setting UTF-8, will convert "Haïti" into "HaÂ-ti.
-
-    QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
-    //QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+    /** TODO Revisit the codecs.
+     * We need to ensure that the codecs used for file paths are consistent with the
+     * platform. QFile is doing the right thing, but there might be excursions through
+     * const char * that would have the local 8 bit encoding.
+     * The source code itself is UTF-8.
+     */
 
     QStringList args = app.arguments();
 
