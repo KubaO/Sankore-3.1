@@ -125,8 +125,11 @@ UBApplication::UBApplication(const QString &id, int &argc, char **argv) : QtSing
 #if defined(Q_OS_MAC) && !defined(QT_NO_DEBUG)
     CFStringRef shortVersion = (CFStringRef)CFBundleGetValueForInfoDictionaryKey(CFBundleGetMainBundle(), CFSTR("CFBundleShortVersionString"));
     const char *version = CFStringGetCStringPtr(shortVersion, kCFStringEncodingMacRoman);
-    Q_ASSERT(version);
-    setApplicationVersion(version);
+    /// FIXME Add version to the executable.
+    if (version) {
+        Q_ASSERT(version);
+        setApplicationVersion(version);
+    }
 #endif
 
     QStringList args = arguments();
