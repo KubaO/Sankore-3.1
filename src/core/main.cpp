@@ -41,23 +41,22 @@
 #endif
 */
 
-void ub_message_output(QtMsgType type, const char *msg) {
-    // We must temporarily remove the handler to avoid the infinite recursion of
-    // ub_message_output -> qt_message_output -> ub_message_output -> qt_message_output ...
-    QtMsgHandler previousHandler = qInstallMsgHandler(0);
+static QtMessageHandler previousHandler;
 
+void ub_message_output(QtMsgType type, const QMessageLogContext &context, const QString & msg) {
 #if defined(QT_NO_DEBUG)
     // Suppress qDebug output in release builds
     if (type != QtDebugMsg)
     {
-        qt_message_output(type, msg);
+        previousHandler(type, context, msg);
     }
 
 #else
     // Default output in debug builds
-    qt_message_output(type, msg);
+    previousHandler(type, context, msg);
 #endif
 
+    /// TODO Don't reopen the log all the time.
     if (UBApplication::app() && UBApplication::app()->isVerbose()) {
         QString logFileNamePath = UBSettings::userDataDirectory() + "/log/uniboard.log";
         QFile logFile(logFileNamePath);
@@ -68,12 +67,9 @@ void ub_message_output(QtMsgType type, const char *msg) {
         if (logFile.open(QIODevice::Append | QIODevice::Text)) {
             QTextStream out(&logFile);
             out << QDateTime::currentDateTime().toString(Qt::ISODate)
-                << "      " << msg << "\n";
-            logFile.close();
+                << "      " << context.file << ":" << context.line << msg << "\n";
         }
     }
-
-    qInstallMsgHandler(previousHandler);
 }
 
 int main(int argc, char *argv[]) 
@@ -89,7 +85,7 @@ int main(int argc, char *argv[])
 
     Q_INIT_RESOURCE(sankore);
 
-    qInstallMsgHandler(ub_message_output);
+    previousHandler = qInstallMessageHandler(ub_message_output);
 
     UBApplication app("Sankore", argc, argv);
 
