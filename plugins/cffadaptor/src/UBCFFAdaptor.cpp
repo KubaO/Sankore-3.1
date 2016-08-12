@@ -1947,7 +1947,6 @@ bool UBCFFAdaptor::UBToCFFConverter::parseUBZLine(const QDomElement &element, QM
 void UBCFFAdaptor::UBToCFFConverter::addSVGElementToResultModel(const QDomElement &element, QMultiMap<int, QDomElement> &dstList, int layer)
 {
     int elementLayer = (DEFAULT_LAYER == layer) ? DEFAULT_LAYER : layer;
-    dstList.setInsertInOrder(true);
     QDomElement rootElement = element.cloneNode(true).toElement();
     mDocumentToWrite->firstChildElement().appendChild(rootElement);
     dstList.insert(elementLayer, rootElement);
