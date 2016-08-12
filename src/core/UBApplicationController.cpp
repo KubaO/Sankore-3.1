@@ -83,7 +83,6 @@ UBApplicationController::UBApplicationController(UBBoardView *pControlView,
     , mAutomaticCheckForUpdates(false)
     , mCheckingForUpdates(false)
     , mIsShowingDesktop(false)
-    , mHttp(0)
 {
     mDisplayManager = new UBDisplayManager(this);
 
@@ -115,6 +114,7 @@ UBApplicationController::UBApplicationController(UBBoardView *pControlView,
             , this, SLOT(addCapturedPixmap(const QPixmap &, bool, const QUrl&)));
 
     networkAccessManager = new QNetworkAccessManager (this);
+    connect(networkAccessManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(updateRequestFinished(QNetworkReply*)));
     QTimer::singleShot (1000, this, SLOT (checkUpdateAtLaunch()));
 
 #ifdef Q_OS_LINUX
@@ -133,7 +133,6 @@ UBApplicationController::~UBApplicationController()
 
     delete mBlackScene;
     delete mMirror;
-    if (mHttp) delete mHttp;
 }
 
 
@@ -560,29 +559,26 @@ void UBApplicationController::showSankoreEditor()
     emit mainModeChanged(mMainMode);
 }
 
+/// FIXME The update URL should be a github URL.
+/// The update detection can be done like the regex livecheck in macports.
 void UBApplicationController::checkUpdate()
 {
-    if(mHttp)
-        delete mHttp;
     QUrl url("http://ftp.open-sankore.org/update.json");
-    mHttp = new QHttp(url.host());
-    connect(mHttp, SIGNAL(requestFinished(int,bool)), this, SLOT(updateRequestFinished(int,bool)));
-    mHttp->get(url.path());
+    networkAccessManager->get(QNetworkRequest(url));
 }
 
-void UBApplicationController::updateRequestFinished(int id, bool error)
+void UBApplicationController::updateRequestFinished(QNetworkReply * reply)
 {
-   if (error){
-       qWarning() << "http command id" << id << "return the error: " << mHttp->errorString();
-       mHttp->close();
+   if (reply->error() != QNetworkReply::NoError){
+       qWarning() << "http request" << reply << "returned the error: " << reply->errorString();
    }
    else{
-       QString responseString =  QString(mHttp->readAll());
+       QString responseString =  QString::fromUtf8(reply->readAll());
        if (!responseString.isEmpty() && responseString.contains("version") && responseString.contains("url")){
-           mHttp->close();
            downloadJsonFinished(responseString);
        }
    }
+   reply->deleteLater();
 }
 
 

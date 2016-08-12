@@ -37,7 +37,6 @@ class UBVersion;
 class UBSoftwareUpdate;
 class QNetworkAccessManager;
 class QNetworkReply;
-class QHttp;
 class UBRightPalette;
 
 
@@ -142,7 +141,7 @@ class UBApplicationController : public QObject
         void checkUpdateAtLaunch();
 
     private slots:
-        void updateRequestFinished(int id, bool error);
+        void updateRequestFinished(QNetworkReply*);
 
     protected:
 
@@ -178,7 +177,6 @@ class UBApplicationController : public QObject
         QNetworkAccessManager *networkAccessManager;
 
         void downloadJsonFinished(QString updateString);
-        QHttp* mHttp;
 };
 
 #endif /* UBAPPLICATIONCONTROLLER_H_ */
