@@ -54,7 +54,6 @@ class UBRubberBand : public QRubberBand
         virtual void mouseReleaseEvent(QMouseEvent *event);
 
     private:
-        QStyle* customStyle;
         enm_resizingMode mResizingMode;
         int mResizingBorderHeight;
         bool mMouseIsPressed;

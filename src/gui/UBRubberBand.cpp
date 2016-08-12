@@ -24,12 +24,7 @@
 #include "UBRubberBand.h"
 
 #include <QtWidgets>
-#include <QPlastiqueStyle>
 #include <QStyleFactory>
-
-#ifdef Q_OS_MAC
-#include <QMacStyle>
-#endif
 
 #include "core/UBApplication.h"
 #include "board/UBBoardController.h"
@@ -44,28 +39,12 @@ UBRubberBand::UBRubberBand(Shape s, QWidget * p)
     , mMouseIsPressed(false)
     , mLastPressedPoint(QPoint())
 {
-    customStyle = NULL;
-
-#ifdef Q_OS_WIN
-    customStyle = new QWindowsXPStyle();
-#elif defined(Q_OS_MAC)
-    customStyle = new QMacStyle();
-#elif defined(Q_OS_LINUX)
-    customStyle = QStyleFactory::create("oxygen");
-#endif
-
-    if (customStyle)
-        QRubberBand::setStyle(customStyle);
-
     setAttribute(Qt::WA_TransparentForMouseEvents, false);
     setMouseTracking(true);
 }
 
 UBRubberBand::~UBRubberBand()
-{
-    if (customStyle)
-        delete customStyle;
-}
+{}
 
 UBRubberBand::enm_resizingMode UBRubberBand::determineResizingMode(QPoint pos)
 {
