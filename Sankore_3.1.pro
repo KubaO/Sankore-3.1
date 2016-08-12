@@ -84,6 +84,8 @@ UB_LIBRARY.files = resources/library
 UB_FONTS.files = resources/fonts
 UB_THIRDPARTY_INTERACTIVE.files = thirdparty/interactive
 
+# FIXME Disallow deprecated methods.
+DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 DEFINES += NO_THIRD_PARTY_WARNINGS
 DEFINES += VERSION_TYPE=\"\\\"$${VERSION_TYPE}\"\\\"
 DEFINES += VERSION_PATCH=\"\\\"$${VERSION_PATCH}\"\\\"
