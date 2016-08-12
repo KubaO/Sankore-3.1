@@ -1,7 +1,8 @@
+# To build the application and its dependencies, open the Sankore_top.pro
 TARGET = "Open-Sankore"
 TEMPLATE = app
 
-THIRD_PARTY_PATH=../Sankore-ThirdParty
+include(config.pri)
 
 CONFIG -= flat
 CONFIG += debug_and_release \
@@ -93,23 +94,10 @@ DEFINES += UBVERSION=\"\\\"$${LONG_VERSION}\"\\\" \
    UBVERSION_RC=$$VERSION_RC
 ALPHA_BETA_STR = $$find(VERSION, "[ab]")
 count(ALPHA_BETA_STR, 1):DEFINES += PRE_RELEASE
-BUILD_DIR = build
 
-macx:BUILD_DIR = $$BUILD_DIR/macx
-win32:BUILD_DIR = $$BUILD_DIR/win32
-linux-*:BUILD_DIR = $$BUILD_DIR/linux
-
-CONFIG(debug, debug|release):BUILD_DIR = $$BUILD_DIR/debug
 CONFIG(release, debug|release) {
-   BUILD_DIR = $$BUILD_DIR/release
    CONFIG += warn_off
 }
-
-DESTDIR = $$BUILD_DIR/product
-OBJECTS_DIR = $$BUILD_DIR/objects
-MOC_DIR = $$BUILD_DIR/moc
-RCC_DIR = $$BUILD_DIR/rcc
-UI_DIR = $$BUILD_DIR/ui
 
 win32 {
    RC_FILE = resources/win/sankore.rc
@@ -118,14 +106,14 @@ win32 {
    QMAKE_CXXFLAGS += /MP
    QMAKE_CXXFLAGS_RELEASE += /Od /Zi
    QMAKE_LFLAGS_RELEASE += /DEBUG
-   UB_LIBRARY.path = $$DESTDIR
-   UB_I18N.path = $$DESTDIR/i18n
-   UB_ETC.path = $$DESTDIR
-   UB_THIRDPARTY_INTERACTIVE.path = $$DESTDIR/library
-   system(md $$replace(BUILD_DIR, /, \\))
-   system(echo "$$VERSION" > $$BUILD_DIR/version)
-   system(echo "$$LONG_VERSION" > $$BUILD_DIR/longversion)
-   system(echo "$$SVN_VERSION" > $$BUILD_DIR/svnversion)
+   UB_LIBRARY.path = $$OUT_PWD
+   UB_I18N.path = $$OUT_PWD/i18n
+   UB_ETC.path = $$OUT_PWD
+   UB_THIRDPARTY_INTERACTIVE.path = $$OUT_PWD/library
+   system(md $$replace(OUT_PWD, /, \\))
+   system(echo "$$VERSION" > $$OUT_PWD/version)
+   system(echo "$$LONG_VERSION" > $$OUT_PWD/longversion)
+   system(echo "$$SVN_VERSION" > $$OUT_PWD/svnversion)
 
 }
 
@@ -138,13 +126,13 @@ macx {
 
    QMAKE_MACOSX_DEPLOYMENT_TARGET = "10.8"
 
-   VERSION_RC_PATH = "$$BUILD_DIR/version_rc"
+   VERSION_RC_PATH = "$$OUT_PWD/version_rc"
 
    # Embed version into executable for breakpad
-   QMAKE_LFLAGS += -sectcreate \
-       __DATA \
-       __version \
-       $$VERSION_RC_PATH
+   #QMAKE_LFLAGS += -sectcreate \
+   #    __DATA \
+   #    __version \
+   #    $$VERSION_RC_PATH
 
    QMAKE_CXXFLAGS_RELEASE += -gdwarf-2 \
        -mdynamic-no-pic
@@ -169,7 +157,7 @@ macx {
    UB_MACX_ICNS.path = "$$RESOURCES_DIR"
    UB_MACX_EXTRAS.files = "resources/macx/Save PDF to Open-Sankore.workflow"
    UB_MACX_EXTRAS.path = "$$RESOURCES_DIR"
-   UB_I18N.path = $$DESTDIR/i18n # not used
+   UB_I18N.path = $$OUT_PWD/i18n # not used
 
    exists(resources/i18n/sankore_en.qm) {
        TRANSLATION_en.files = resources/i18n/sankore_en.qm \
@@ -407,9 +395,9 @@ macx {
    QMAKE_INFO_PLIST = "resources/macx/Info.plist"
 
    # For packger (release.macx.sh script) to know Uniboard version
-   system(mkdir -p $$BUILD_DIR)
-   system(printf \""$$OSX_VERSION"\" > $$BUILD_DIR/osx_version)
-   system(printf \""$$VERSION"\" > $$BUILD_DIR/version)
+   system(mkdir -p $$OUT_PWD)
+   system(printf \""$$OSX_VERSION"\" > $$OUT_PWD/osx_version)
+   system(printf \""$$VERSION"\" > $$OUT_PWD/version)
    system(printf "%02x%02x%02x%02x" `printf $$VERSION_RC | cut -d ',' -f 1` `printf $$VERSION_RC | cut -d ',' -f 2` `printf $$VERSION_RC | cut -d ',' -f 3` `printf $$VERSION_RC | cut -d ',' -f 4` | xxd -r -p > "$$VERSION_RC_PATH")
 }
 
@@ -420,14 +408,14 @@ linux-* {
     QMAKE_CFLAGS += -fopenmp
     QMAKE_CXXFLAGS += -fopenmp
     QMAKE_LFLAGS += -fopenmp
-    UB_LIBRARY.path = $$DESTDIR
-    UB_I18N.path = $$DESTDIR/i18n
-    UB_ETC.path = $$DESTDIR
-    UB_THIRDPARTY_INTERACTIVE.path = $$DESTDIR/library
-    system(mkdir -p $$BUILD_DIR)
-    system(echo "$$VERSION" > $$BUILD_DIR/version)
-    system(echo "$$LONG_VERSION" > $$BUILD_DIR/longversion)
-    system(echo "$$SVN_VERSION" > $$BUILD_DIR/svnversion)
+    UB_LIBRARY.path = $$OUT_PWD
+    UB_I18N.path = $$OUT_PWD/i18n
+    UB_ETC.path = $$OUT_PWD
+    UB_THIRDPARTY_INTERACTIVE.path = $$OUT_PWD/library
+    system(mkdir -p $$OUT_PWD)
+    system(echo "$$VERSION" > $$OUT_PWD/version)
+    system(echo "$$LONG_VERSION" > $$OUT_PWD/longversion)
+    system(echo "$$SVN_VERSION" > $$OUT_PWD/svnversion)
 
     linux-clang {
         QMAKE_CXXFLAGS_WARN_ON += -Wno-unknown-pragmas

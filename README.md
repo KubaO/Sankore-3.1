@@ -1,16 +1,45 @@
-This is an in-progress port to Qt 5. At the moment, it requires Qt 5.5.1. It has
-only been tested on OS X.
+This is an in-progress port to Qt 5.
 
-This is because:
+It builds successfully on OS X 10.10 and starts up and brings up the GUI. The extent to which it functions hasn't been investigated yet.
 
-1. The webkit module is needed and is not available in Qt 5.6.
+General Prerequisites
+=====================
 
-2. Legacy QuickTime APIs are needed on OS X, necessitating a 32-bit build.
-   The last version of chromium that still compiles in 32-bit mode
-   is bundled with webengine release with Qt 5.5.1.
+0. A 32-bit build.
+
+   Legacy QuickTime APIs are needed on OS X, necessitating a 32-bit build.
+
+1. Qt 5.5.1 (exact version needed). 
+
+  The webkit module is needed and is not available in Qt 5.6.
+
+  The last version of chromium that still compiles in 32-bit mode
+  is bundled with webengine release with Qt 5.5.1.
    
-Of course the plan is to drop the use of QuickTime APIs, and use webengine
-from a 64-bit build.
+  Of course the plan is to drop the use of QuickTime APIs, and use webengine
+  from a 64-bit build.
+
+2. OS X 10.10
+
+  No other platform has been tested. After the legacy QuickTime and Phonon
+  dependencies are dropped, builds on other platforms will be investigated as
+  well.
+  
+3. Phonon 4.9.0
+
+  This will be dropped as soon as the porting work to Qt Multimedia is done.
+
+Preparation & Building
+======================
+
+1. Check out the Sankore-ThirdParty repository. Both repositories should be
+   in the same folder:
+   
+   |
+   +- Sankore              (this can have arbitrary name)
+   +- Sankore-Thirdparty   (this is a default, if you change it edit config.pri to match)
+
+2. After installing the prerequisites, build the Sankore_top.pro project.
 
 OS X Prerequisites
 ==================
