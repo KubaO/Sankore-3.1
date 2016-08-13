@@ -110,7 +110,6 @@ win32 {
    UB_I18N.path = $$OUT_PWD/i18n
    UB_ETC.path = $$OUT_PWD
    UB_THIRDPARTY_INTERACTIVE.path = $$OUT_PWD/library
-   system(md $$replace(OUT_PWD, /, \\))
    system(echo "$$VERSION" > $$OUT_PWD/version)
    system(echo "$$LONG_VERSION" > $$OUT_PWD/longversion)
    system(echo "$$SVN_VERSION" > $$OUT_PWD/svnversion)
@@ -395,7 +394,6 @@ macx {
    QMAKE_INFO_PLIST = "resources/macx/Info.plist"
 
    # For packger (release.macx.sh script) to know Uniboard version
-   system(mkdir -p $$OUT_PWD)
    system(printf \""$$OSX_VERSION"\" > $$OUT_PWD/osx_version)
    system(printf \""$$VERSION"\" > $$OUT_PWD/version)
    system(printf "%02x%02x%02x%02x" `printf $$VERSION_RC | cut -d ',' -f 1` `printf $$VERSION_RC | cut -d ',' -f 2` `printf $$VERSION_RC | cut -d ',' -f 3` `printf $$VERSION_RC | cut -d ',' -f 4` | xxd -r -p > "$$VERSION_RC_PATH")
@@ -412,7 +410,6 @@ linux-* {
     UB_I18N.path = $$OUT_PWD/i18n
     UB_ETC.path = $$OUT_PWD
     UB_THIRDPARTY_INTERACTIVE.path = $$OUT_PWD/library
-    system(mkdir -p $$OUT_PWD)
     system(echo "$$VERSION" > $$OUT_PWD/version)
     system(echo "$$LONG_VERSION" > $$OUT_PWD/longversion)
     system(echo "$$SVN_VERSION" > $$OUT_PWD/svnversion)
