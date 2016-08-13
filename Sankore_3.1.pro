@@ -101,7 +101,7 @@ CONFIG(release, debug|release) {
 
 win32 {
    RC_FILE = resources/win/sankore.rc
-   CONFIG += qaxcontainer
+   QT += axcontainer
    exists(console):CONFIG += console
    QMAKE_CXXFLAGS += /MP
    QMAKE_CXXFLAGS_RELEASE += /Od /Zi
