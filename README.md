@@ -5,10 +5,6 @@ It builds successfully on OS X 10.10 and starts up and brings up the GUI. The ex
 General Prerequisites
 =====================
 
-0. A 32-bit build.
-
-   Legacy QuickTime APIs are needed on OS X, necessitating a 32-bit build.
-
 1. Qt 5.5.1 (exact version needed). 
 
   The webkit module is needed and is not available in Qt 5.6.
@@ -47,6 +43,9 @@ OS X Prerequisites
 You'll need a 32-bit install of Qt 5.5.1 with Chromium and Phonon. MacPorts
 doesn't provide one so you'll have to roll your own.
 
+The 64-bit Qt won't work as all the code must be built in 32 bits since 
+legacy QuickTime APIs are needed on OS X, necessitating a 32-bit build.
+
 1. Prep:
 
  a) Install MacPorts.
@@ -69,7 +68,7 @@ doesn't provide one so you'll have to roll your own.
  
  d) Setup the build: In the build folder:
  
-    ../qt-everywhere-opensource-src-5.6.1/configure \
+    ../qt-everywhere-opensource-src-5.5.1/configure \
       -prefix (qt install folder) \
       -nomake examples -platform macx-clang-32 -debug-and-release \
       -opensource -confirm-license
@@ -108,7 +107,7 @@ doesn't provide one so you'll have to roll your own.
       -DCMAKE_BUILD_TYPE=debugfull \
       -DPHONON_LIB_SONAME=phonon4qt5_debug
       
-    Also modify CMakeLists.txt to use the PHONON_LIB_SONAME value given on the command line. Replace the
+    Modify CMakeLists.txt to use the PHONON_LIB_SONAME value given on the command line. Replace the
     if(PHONON_BUILD_PHONON4QT5) section as follows:
     
     if(PHONON_BUILD_PHONON4QT5)
