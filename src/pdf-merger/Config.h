@@ -31,9 +31,12 @@ Is intended for multiplatform support
 #ifdef WIN32
 
 #define _CRT_SECURE_NO_WARNINGS 
+#if _MSC_VER < 1900
+// There's no snprintf prior to MSVC 2015
 #define snprintf _snprintf
+#endif
 
-#endif    
+#endif
 
 
 #endif // CONFIG_H_INCLUDE
