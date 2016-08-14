@@ -10,7 +10,7 @@ SUBDIRS = \
     sub_quazip \
     sub_xpdf
 
-sub_app.file = Sankore_3.1.pro
+sub_app.file = Sankore.pro
 sub_app.depends = sub_phonon sub_quazip sub_xpdf
 
 sub_phonon.subdir = thirdparty/phonon
