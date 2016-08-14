@@ -1,30 +1,46 @@
 This is an in-progress port to Qt 5.
 
-It builds successfully on OS X 10.10 and starts up and brings up the GUI. The extent to which it functions hasn't been investigated yet.
+It builds successfully on OS X 10.10 and starts up and brings up the GUI. The extent to which it
+functions hasn't been investigated yet.
+
+It should also build on Windows with MSVC 2015.
+
+The legacy Qt requirement will be dropped as soon as ICU and WebKit find their way into
+the third party repository.
+
+The following third-party prerequisites are built along with the project:
+
+- phonon
+- quazip
+- xpdf
+- zlib
+- openssl (on Windows)
+
+The plan is to add the following to the third-party repository to enable a successful
+and functional build under newest Qt:
+
+- icu (on Windows)
+- webkit from Qt 5.5.1
+
+There's not much point in adding a phonon backend; the port to Qt Multimedia shouldn't
+be too hard.
 
 General Prerequisites
 =====================
 
-1. Qt 5.5.1 (exact version needed). 
+1. Qt 5.5.1 (exact version required)
 
   The webkit module is needed and is not available in Qt 5.6.
 
-  The last version of chromium that still compiles in 32-bit mode
-  is bundled with webengine release with Qt 5.5.1.
-   
-  Of course the plan is to drop the use of QuickTime APIs, and use webengine
-  from a 64-bit build.
+  This Qt bundles the last version of chromium that still compiles in 32-bit mode
+  on OS X.
+ 
+2. OS X 10.10 or Windows+MSVC 2015
 
-2. OS X 10.10
-
-  No other platform has been tested. After the legacy QuickTime and Phonon
+  No other platforms have been tested. After the legacy QuickTime and Phonon
   dependencies are dropped, builds on other platforms will be investigated as
   well.
   
-3. Phonon 4.9.0
-
-  This will be dropped as soon as the porting work to Qt Multimedia is done.
-
 Preparation & Building
 ======================
 
@@ -40,7 +56,7 @@ Preparation & Building
 OS X Prerequisites
 ==================
 
-You'll need a 32-bit install of Qt 5.5.1 with Chromium and Phonon. MacPorts
+You'll need a 32-bit install of Qt 5.5.1 with Chromium. MacPorts
 doesn't provide one so you'll have to roll your own.
 
 The 64-bit Qt won't work as all the code must be built in 32 bits since 
@@ -84,45 +100,7 @@ legacy QuickTime APIs are needed on OS X, necessitating a 32-bit build.
 
  h) Install
     gmake install
-  
-3. Phonon build
-
- a) Download and untar
-    https://github.com/KDE/phonon/archive/v4.9.0.tar.gz
-    
- b) This will be a shadow build that will install into the Qt installation from
-    above. Create a build folder.
- 
- c) Setup the build: In the build folder:
- 
-    cmake ../phonon-4.9.0 -G Ninja \
-      -DPHONON_BUILD_PHONON4QT5=ON \
-      -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=ON \
-      -DPHONON_NO_DBUS=ON \
-      -DCMAKE_CXX_FLAGS="-arch i386" \
-      -DCMAKE_PREFIX_PATH=(qt install folder)
-
-    For a debug build, add:
-    
-      -DCMAKE_BUILD_TYPE=debugfull \
-      -DPHONON_LIB_SONAME=phonon4qt5_debug
-      
-    Modify CMakeLists.txt to use the PHONON_LIB_SONAME value given on the command line. Replace the
-    if(PHONON_BUILD_PHONON4QT5) section as follows:
-    
-    if(PHONON_BUILD_PHONON4QT5)
-        set(PHONON_LIB_SONAME phonon4qt5 CACHE STRING "The base library name")
-        set(PHONON_LIB_SONAME_CAMEL Phonon4Qt5 CACHE STRING "The base library name")
-    endif(PHONON_BUILD_PHONON4QT5)
- 
- d) Build and install
- 
-    ninja install
- 
- e) Make the <phonon> include prefix work:
-	 
-    ln -s /usr/local/include/phonon4qt5/phonon /usr/local/include/
- 
+   
 Ubuntu Linux Prerequisites
 ==========================
 Fonts
