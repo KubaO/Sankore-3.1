@@ -16,7 +16,8 @@ sub_quazip.subdir = thirdparty/quazip
 sub_xpdf.subdir = thirdparty/xpdf
 
 win32 {
-    SUBDIRS += sub_zlib
-    sub_app.depends += sub_zlib
+    SUBDIRS += sub_zlib sub_openssl
+    sub_app.depends += sub_zlib sub_openssl
     sub_zlib.subdir = thirdparty/zlib
+    sub_openssl.subdir = thirdparty/openssl
 }
