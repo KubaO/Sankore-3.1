@@ -59,32 +59,3 @@ SOURCES += \
     $$PWD/JBIG2Decode.cpp \
     $$PWD/DCTDecode.cpp
 	
-
-macx {
-   LIBS += -lz
-}
-
-win32 {
-    
-    LIBS     += "-L$$PWD/../../zlib/1.2.3/lib" "-lzlib"
-   
-}
-
-linux-g++ {
-
-   LIBS += -lz
-
-}
-linux-g++-32 {
-
-   LIBS += -lz
-
-}
-linux-g++-64 {
-
-   LIBS += -lz
-
-}
-
-
-
