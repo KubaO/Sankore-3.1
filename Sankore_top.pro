@@ -6,12 +6,14 @@ include(config.pri)
 
 SUBDIRS = \
     sub_app \
+    sub_phonon \
     sub_quazip \
     sub_xpdf
 
 sub_app.file = Sankore_3.1.pro
-sub_app.depends = sub_quazip sub_xpdf
+sub_app.depends = sub_phonon sub_quazip sub_xpdf
 
+sub_phonon.subdir = thirdparty/phonon
 sub_quazip.subdir = thirdparty/quazip
 sub_xpdf.subdir = thirdparty/xpdf
 

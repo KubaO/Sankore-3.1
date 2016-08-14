@@ -28,7 +28,6 @@ VERSION_RC = $$replace(VERSION_RC, "r", "240") # 0xF0
 QT += webkit
 QT += svg
 QT += network
-QT += phonon4qt5
 QT += xml
 QT += script
 QT += xmlpatterns
