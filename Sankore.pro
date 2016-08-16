@@ -33,6 +33,7 @@ QT += xmlpatterns
 QT += multimedia
 QT += webenginewidgets
 QT += printsupport
+QT += opengl
 
 INCLUDEPATH += src
 
