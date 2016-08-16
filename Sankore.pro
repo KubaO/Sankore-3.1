@@ -117,8 +117,7 @@ win32 {
 }
 
 macx {
-   LIBS += -framework Foundation
-   LIBS += -lcrypto
+   LIBS += -framework AVFoundation
    #commented because Sankore crashes on Java Script. It seems to backends dependencies.
    #LIBS += -framework AppKit
    #LIBS += -framework WebKit
