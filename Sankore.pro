@@ -34,6 +34,7 @@ QT += xmlpatterns
 QT += multimedia
 QT += webkitwidgets
 QT += printsupport
+QT += opengl
 
 INCLUDEPATH += src
 
