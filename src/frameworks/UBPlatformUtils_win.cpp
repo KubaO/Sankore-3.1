@@ -88,6 +88,10 @@ QString UBPlatformUtils::systemLanguage()
     return QLocale::system().name();
 }
 
+static LPCWSTR lpcwstr(const QString & str) {
+    return reinterpret_cast<LPCWSTR>(str.utf16());
+}
+
 void UBPlatformUtils::runInstaller(const QString &installerFilePath)
 {
     QProcess process;
@@ -99,7 +103,7 @@ void UBPlatformUtils::runInstaller(const QString &installerFilePath)
     {
         qWarning() << "Running '" << installerFilePath << "' failed (error=" << process.error() << ")";
         QString verb = "runas";
-        ::ShellExecute(NULL, verb.utf16(), installerFilePath.utf16(), NULL, NULL, SW_HIDE);
+        ::ShellExecute(NULL, lpcwstr(verb), lpcwstr(installerFilePath), NULL, NULL, SW_HIDE);
     }
 }
 
@@ -139,10 +143,11 @@ void UBPlatformUtils::setDesktopMode(bool desktop)
 
 void UBPlatformUtils::setWindowNonActivableFlag(QWidget* widget, bool nonAcivable)
 {
-	long exStyle = (nonAcivable) ? GetWindowLong(widget->winId(), GWL_EXSTYLE) | WS_EX_NOACTIVATE
-		: GetWindowLong(widget->winId(), GWL_EXSTYLE) & ~WS_EX_NOACTIVATE;
+    HWND wnd = reinterpret_cast<HWND>(widget->winId());
+    long exStyle = (nonAcivable) ? GetWindowLong(wnd, GWL_EXSTYLE) | WS_EX_NOACTIVATE
+        : GetWindowLong(wnd, GWL_EXSTYLE) & ~WS_EX_NOACTIVATE;
 
-	SetWindowLong(widget->winId(), GWL_EXSTYLE, exStyle);
+    SetWindowLong(wnd, GWL_EXSTYLE, exStyle);
 }
 
 #define KEYBTDECL(s1, s2, clSwitch) KEYBT(s1, s2, clSwitch, 0, 0, KEYCODE(s1), KEYCODE(s2))
