@@ -39,7 +39,7 @@ typedef struct
 class UBDocumentProxy;
 class UBServerXMLHttpRequest;
 class UBGraphicsW3CWidgetItem;
-class QWebView;
+class QWebEngineView;
 
 class UBProxyLoginDlg : public QDialog
 {

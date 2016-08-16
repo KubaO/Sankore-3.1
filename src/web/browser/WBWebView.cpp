@@ -82,7 +82,7 @@
 #include "core/memcheck.h"
 
 WBWebPage::WBWebPage(QObject *parent)
-    : UBWebPage(parent)
+    : UBWebEnginePage(parent)
     , mKeyboardModifiers(Qt::NoModifier)
     , mPressedButtons(Qt::NoButton)
     , mOpenInNewTab(false)

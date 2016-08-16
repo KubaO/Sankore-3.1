@@ -30,7 +30,7 @@
 class UBGraphicsWidgetItem;
 class QWidget;
 class UBGraphicsScene;
-class QWebView;
+class QWebEngineView;
 
 class UBToolWidget : public QWidget
 {
@@ -63,7 +63,7 @@ class UBToolWidget : public QWidget
         void reactOnBoardChanged();
 
     protected:
-        QWebView *mWebView;
+        QWebEngineView *mWebView;
         UBGraphicsWidgetItem *mToolWidget;
 
         static QPixmap *sClosePixmap;

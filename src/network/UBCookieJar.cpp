@@ -69,7 +69,7 @@
 #include "core/UBSettings.h"
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebEngineCore>
 
 #include "core/memcheck.h"
 
@@ -241,8 +241,9 @@ QList<QNetworkCookie> UBCookieJar::cookiesForUrl(const QUrl &url) const
     if (!mLoaded)
         that->load();
 
-    QWebSettings *globalSettings = QWebSettings::globalSettings();
-    if (globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled)) {
+    /// FIXME Private browsing implies no cookies!
+    QWebEngineSettings *globalSettings = QWebEngineSettings::globalSettings();
+    if (false /*globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled)*/) {
         QList<QNetworkCookie> noCookies;
         return noCookies;
     }
@@ -255,8 +256,9 @@ bool UBCookieJar::setCookiesFromUrl(const QList<QNetworkCookie> &cookieList, con
     if (!mLoaded)
         load();
 
-    QWebSettings *globalSettings = QWebSettings::globalSettings();
-    if (globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled))
+    /// FIXME Private browsing needs to be stored somewhere
+    QWebEngineSettings *globalSettings = QWebEngineSettings::globalSettings();
+    if (false /*globalSettings->testAttribute(QWebSettings::PrivateBrowsingEnabled)*/)
         return false;
 
     QString host = url.host();

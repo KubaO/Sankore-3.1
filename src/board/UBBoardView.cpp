@@ -1713,7 +1713,7 @@ void UBBoardView::dropEvent (QDropEvent *event)
     } else {
         if (!event->source()
                 || qobject_cast<UBThumbnailWidget *>(event->source())
-                || qobject_cast<QWebView*>(event->source())
+                || qobject_cast<QWebEngineView*>(event->source())
                 || qobject_cast<UBTGMediaWidget*>(event->source())
                 || qobject_cast<QListView *>(event->source())
                 || qobject_cast<UBTGDraggableTreeItem*>(event->source())) {

@@ -28,7 +28,7 @@
 
 #include "core/memcheck.h"
 
-UBLibraryAPI::UBLibraryAPI(QWebView *pWebView)
+UBLibraryAPI::UBLibraryAPI(QWebEngineView *pWebView)
     : QObject(pWebView)
     , mWebView(pWebView)
 {

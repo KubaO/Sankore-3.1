@@ -22,7 +22,7 @@
 
 
 #include <QDomDocument>
-#include <QWebView>
+#include <QWebEngineView>
 
 #include "UBFeaturesWidget.h"
 #include "gui/UBThumbnailWidget.h"
@@ -168,7 +168,7 @@ void UBFeaturesWidget::currentSelected(const QModelIndex &current)
 
         } else if (feature.getType() == FEATURE_SEARCH) {
             //The search feature behavior is not standard. If features list clicked - show empty element
-            //else show existing saved features search QWebView
+            //else show existing saved features search QWebEngineView
             if (sender()->objectName() == objNameFeatureList) {
                 centralWidget->showElement(feature, UBFeaturesCentralWidget::FeaturesWebView);
             } else if (sender()->objectName() == objNamePathList) {
@@ -942,19 +942,14 @@ UBFeaturesWebView::UBFeaturesWebView(QWidget* parent, const char* name):QWidget(
     mpLayout = new QVBoxLayout();
     setLayout(mpLayout);
 
-    mpView = new QWebView(this);
+    mpView = new QWebEngineView(this);
     mpView->setObjectName("SearchEngineView");
     mpSankoreAPI = new UBWidgetUniboardAPI(UBApplication::boardController->activeScene());
     mpView->page()->mainFrame()->addToJavaScriptWindowObject("sankore", mpSankoreAPI);
     connect(mpView->page()->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(javaScriptWindowObjectCleared()));
-    mpWebSettings = QWebSettings::globalSettings();
-    mpWebSettings->setAttribute(QWebSettings::JavaEnabled, true);
-    mpWebSettings->setAttribute(QWebSettings::PluginsEnabled, true);
-    mpWebSettings->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
-    mpWebSettings->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
-    mpWebSettings->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
-    mpWebSettings->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    mpWebSettings->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+    mpWebSettings = QWebEngineSettings::globalSettings();
+    mpWebSettings->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
+    mpWebSettings->setAttribute(QWebEngineSettings::WebAttribute::JavascriptCanAccessClipboard, true);
 
     mpLayout->addWidget(mpView);
     mpLayout->setMargin(0);

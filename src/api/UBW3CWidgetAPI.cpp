@@ -24,7 +24,7 @@
 #include "UBW3CWidgetAPI.h"
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebEngineCore>
 
 #include "core/UBApplication.h"
 #include "core/UBApplicationController.h"

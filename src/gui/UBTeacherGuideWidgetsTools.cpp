@@ -28,10 +28,10 @@
 #include <QLabel>
 #include <QDebug>
 #include <QUrl>
-#include <QWebSettings>
+#include <QWebEngineSettings>
 #include <QApplication>
 #include <QDomElement>
-#include <QWebFrame>
+#include <QWebEnginePage>
 #include <QTextDocument>
 #include <QTextBlock>
 #include <QTextCursor>
@@ -479,7 +479,7 @@ void UBTGAdaptableText::setCursorToTheEnd()
 /***************************************************************************
  *                      class   UBTGDraggableWeb                           *
  ***************************************************************************/
-UBDraggableWeb::UBDraggableWeb(QString& relativePath, QWidget* parent): QWebView(parent)
+UBDraggableWeb::UBDraggableWeb(QString& relativePath, QWidget* parent): QWebEngineView(parent)
   , mDragStartPosition(QPoint(-1,-1))
   , mDragStarted(false)
 
@@ -495,13 +495,13 @@ void UBDraggableWeb::mousePressEvent(QMouseEvent* event)
 {
     mDragStartPosition = event->pos();
     mDragStarted = true;
-    QWebView::mousePressEvent(event);
+    QWebEngineView::mousePressEvent(event);
 }
 
 void UBDraggableWeb::mouseReleaseEvent(QMouseEvent* event)
 {
     mDragStarted = false;
-    QWebView::mouseReleaseEvent(event);
+    QWebEngineView::mouseReleaseEvent(event);
 }
 
 void UBDraggableWeb::mouseMoveEvent(QMouseEvent* event)
@@ -519,7 +519,7 @@ void UBDraggableWeb::mouseMoveEvent(QMouseEvent* event)
         mDragStarted = false;
     }
     else
-        QWebView::mouseMoveEvent(event);
+        QWebEngineView::mouseMoveEvent(event);
 
 }
 
@@ -781,13 +781,8 @@ void UBTGMediaWidget::createWorkWidget(bool forceFlashMediaType)
         }
         mpWebView = new UBDraggableWeb(mMediaPath);
         mpWebView->setAcceptDrops(false);
-        mpWebView->settings()->setAttribute(QWebSettings::JavaEnabled, true);
-        mpWebView->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
-        mpWebView->settings()->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
-        mpWebView->settings()->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
-        mpWebView->settings()->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
-        mpWebView->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-        mpWebView->settings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+        mpWebView->settings()->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
+        mpWebView->settings()->setAttribute(QWebEngineSettings::WebAttribute::JavascriptCanAccessClipboard, true);
         QString indexPath = mMediaPath+"/index.htm";
         if(!QFile::exists(indexPath))
             indexPath += "l";

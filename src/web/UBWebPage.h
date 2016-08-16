@@ -25,28 +25,23 @@
 #define UBWEBPAGE_H_
 
 /*
- * Use UBWebPage instead of QWebPage to log JavaScript console messages with qDebug
+ * Use UBWebEnginePage instead of QWebEnginePage to log JavaScript console messages with qDebug
  */
 
-#include <QtCore>
-#include <QWebPage>
+#include <QWebEnginePage>
 
-class UBWebPage : public QWebPage
+class UBWebEnginePage : public QWebEnginePage
 {
     Q_OBJECT;
 
     public:
-        UBWebPage(QObject *parent = 0);
-        virtual ~UBWebPage();
+        UBWebEnginePage(QObject *parent = 0);
+        virtual ~UBWebEnginePage();
 
-        virtual void javaScriptConsoleMessage(const QString &message, int lineNumber, const QString &sourceID);
-
-        virtual QString userAgentForUrl(const QUrl& url) const;
-
+        void javaScriptConsoleMessage(QWebEnginePage::JavaScriptConsoleMessageLevel level,
+                                      const QString &message, int lineNumber, const QString &sourceID) override;
     private:
         QString mCachedUserAgentString;
-        QWebPluginFactory *mPluginFactory;
-
 };
 
 #endif /* UBWEBPAGE_H_ */

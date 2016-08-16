@@ -33,7 +33,7 @@
 #include <QLineEdit>
 #include <QMimeData>
 #include <QStackedWidget>
-#include <QWebView>
+#include <QWebEngineView>
 #include <QFocusEvent>
 #include <QMouseEvent>
 
@@ -182,7 +182,7 @@ private:
 };
 
 
-class UBDraggableWeb : public QWebView
+class UBDraggableWeb : public QWebEngineView
 {
     Q_OBJECT
 public:

@@ -66,7 +66,7 @@
 #define WBTABWIDGET_H
 
 #include <QtWidgets>
-#include <QtWebKitWidgets>
+#include <QtWebEngineWidgets>
 
 /*
     Tab bar with a few more features such as a context menu and shortcuts

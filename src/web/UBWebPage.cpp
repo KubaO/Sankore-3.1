@@ -24,12 +24,14 @@
 #include "UBWebPage.h"
 
 #include <QtCore>
-#include <QWebPluginFactory>
 
 #include "pdf/UBWebPluginPDFWidget.h"
 
 #include "core/memcheck.h"
 
+
+/// TODO Inject support for PDF into the browser
+#if 0
 class UBWebPluginFactory : public QWebPluginFactory
 {
     public:
@@ -67,36 +69,26 @@ class UBWebPluginFactory : public QWebPluginFactory
         return 0;
     }
 };
+#endif
 
 
-
-UBWebPage::UBWebPage(QObject *parent)
+UBWebEnginePage::UBWebEnginePage(QObject *parent)
     : QWebPage(parent)
-    , mPluginFactory(0)
 {
-    mCachedUserAgentString = QWebPage::userAgentForUrl(QUrl());
-    //mPluginFactory = new UBWebPluginFactory();
-    //setPluginFactory(mPluginFactory);
-
-    //qDebug() << "caching user agent string" << mCachedUserAgentString;
+#if 0
+    mPluginFactory = new UBWebPluginFactory();
+    setPluginFactory(mPluginFactory);
+#endif
 }
 
-UBWebPage::~UBWebPage()
+UBWebEnginePage::~UBWebEnginePage()
 {
-//    delete mPluginFactory;
 }
 
 
-void UBWebPage::javaScriptConsoleMessage(const QString &message, int lineNumber, const QString &sourceID)
+void UBWebEnginePage::javaScriptConsoleMessage(JavaScriptConsoleMessageLevel level, const QString &message, int lineNumber, const QString &sourceID)
 {
+    Q_UNUSED(level);
     qDebug("JavaScript> %s (%s:%d)", qPrintable(message), qPrintable(sourceID), lineNumber);
 }
-
-
-QString UBWebPage::userAgentForUrl(const QUrl& url) const
-{
-    Q_UNUSED(url);
-    return mCachedUserAgentString;
-}
-
 

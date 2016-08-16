@@ -97,7 +97,7 @@ void UBToolWidget::initialize()
     }
 
 
-    mWebView = new QWebView(this);
+    mWebView = new QWebEngineView(this);
 
     QPalette palette = mWebView->page()->palette();
     palette.setBrush(QPalette::Base, QBrush(Qt::transparent));
@@ -119,7 +119,7 @@ void UBToolWidget::initialize()
 
 
     mWebView->setAcceptDrops(false);
-    mWebView->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
+    mWebView->settings()->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
     mWebView->setAttribute(Qt::WA_OpaquePaintEvent, false);
 
 

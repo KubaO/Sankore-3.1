@@ -66,14 +66,14 @@
 #define WBWEBVIEW_H
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebEngineCore>
 
 #include "WBWebTrapWebView.h"
 #include "web/UBWebPage.h"
 
 class WBBrowserWindow;
 
-class WBWebPage : public UBWebPage
+class WBWebPage : public UBWebEnginePage
 {
     Q_OBJECT;
 

@@ -24,7 +24,7 @@
 #ifndef UBWEBKITUTILS_H_
 #define UBWEBKITUTILS_H_
 
-#include <QtWebKit>
+#include <QtWebEngineCore>
 
 class UBWebKitUtils
 {

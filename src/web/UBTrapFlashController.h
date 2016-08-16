@@ -33,7 +33,9 @@ namespace Ui
     class trapFlashDialog;
 }
 
-
+/// TODO
+/// In the web engine, hit testing must be done via javascript. See e.g.
+/// https://bitbucket.org/chromiumembedded/cef/issues/1416/support-performant-hit-testing
 class UBTrapWebPageContentController : public QObject
 {
     Q_OBJECT

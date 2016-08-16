@@ -65,7 +65,7 @@
 #include "WBDownloadManager.h"
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebEngineCore>
 
 #include "network/UBAutoSaver.h"
 #include "network/UBNetworkAccessManager.h"

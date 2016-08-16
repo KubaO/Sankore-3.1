@@ -77,14 +77,9 @@ UBGraphicsWidgetItem::UBGraphicsWidgetItem(const QUrl &pWidgetUrl, QGraphicsItem
 {
     setData(UBGraphicsItemData::ItemLayerType, QVariant(itemLayerType::ObjectItem)); //Necessary to set if we want z value to be assigned correctly
 
-    QGraphicsWebView::setPage(new UBWebPage(this));
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::JavaEnabled, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::PluginsEnabled, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    QGraphicsWebView::settings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+    QGraphicsWebView::setPage(new UBWebEnginePage(this));
+    settings->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
+    settings->setAttribute(QWebEngineSettings::WebAttribute::JavascriptCanAccessClipboard, true);
 
     page()->setNetworkAccessManager(UBNetworkAccessManager::defaultAccessManager());
 
@@ -134,7 +129,7 @@ void UBGraphicsWidgetItem::initialize()
     QPalette palette = page()->palette();
     palette.setBrush(QPalette::Base, QBrush(Qt::transparent));
     page()->setPalette(palette);
-    page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
+    page()->setLinkDelegationPolicy(QWebEnginePage::DelegateAllLinks);
 
     connect(page()->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(javaScriptWindowObjectCleared()));
     connect(page(), SIGNAL(geometryChangeRequested(const QRect&)), this, SLOT(geometryChangeRequested(const QRect&)));

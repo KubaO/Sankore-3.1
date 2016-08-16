@@ -26,7 +26,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QCheckBox>
-#include <QWebFrame>
+#include <QWebEnginePage>
 #include "UBStartupHintsPalette.h"
 
 #include "globals/UBGlobals.h"
@@ -46,7 +46,7 @@ UBStartupHintsPalette::UBStartupHintsPalette(QWidget *parent) :
         mLayout->setContentsMargins(10,28,10,10);
         setLayout(mLayout);
         QString url = UBSettings::settings()->applicationStartupHintsDirectory() + "/index.html";
-        mpWebView = new QWebView(this);
+        mpWebView = new QWebEngineView(this);
         mpSankoreAPI = new UBWidgetUniboardAPI(0);
         mpWebView->page()->mainFrame()->addToJavaScriptWindowObject("sankore", mpSankoreAPI);
         connect(mpWebView->page()->mainFrame(), SIGNAL(javaScriptWindowObjectCleared()), this, SLOT(javaScriptWindowObjectCleared()));

@@ -24,7 +24,7 @@
 #include "UBApplication.h"
 
 #include <QtWidgets>
-#include <QtWebKit>
+#include <QtWebEngineCore>
 #include <QtXml>
 #include <QFontDatabase>
 
@@ -286,17 +286,12 @@ int UBApplication::exec(const QString& pFileToImport)
     if (!webDbDir.exists(webDbPath))
         webDbDir.mkpath(webDbPath);
 
-    QWebSettings::setIconDatabasePath(webDbPath);
-    QWebSettings::setOfflineStoragePath (webDbPath);
+    QWebEngineSettings::setIconDatabasePath(webDbPath);
+    QWebEngineSettings::setOfflineStoragePath (webDbPath);
 
-    QWebSettings *gs = QWebSettings::globalSettings();
-    gs->setAttribute(QWebSettings::JavaEnabled, true);
-    gs->setAttribute(QWebSettings::PluginsEnabled, true);
-    gs->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
-    gs->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
-    gs->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
-    gs->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-    gs->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+    QWebEngineSettings *gs = QWebEngineSettings::globalSettings();
+    gs->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
+    gs->setAttribute(QWebEngineSettings::WebAttribute::JavascriptCanAccessClipboard, true);
 
 
     mainWindow = new UBMainWindow(0, Qt::FramelessWindowHint); // deleted by application destructor

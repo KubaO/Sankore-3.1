@@ -25,7 +25,7 @@
 #define UBGRAPHICSWIDGETITEM_H
 
 #include <QtWidgets>
-#include <QtWebKitWidgets>
+#include <QtWebEngineWidgets>
 #include <QDomElement>
 
 #include "core/UB.h"

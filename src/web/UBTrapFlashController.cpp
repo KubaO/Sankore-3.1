@@ -109,14 +109,10 @@ void UBTrapWebPageContentController::showTrapContent()
     if (!mTrapWebContentDialog)
     {
         mTrapWebContentDialog = new WBTrapWebPageContentWindow(this, mParentWidget);
-        mTrapWebContentDialog->webView()->page()->setNetworkAccessManager(UBNetworkAccessManager::defaultAccessManager());
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::JavaEnabled, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::PluginsEnabled, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::LocalStorageDatabaseEnabled, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::OfflineWebApplicationCacheEnabled, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::OfflineStorageDatabaseEnabled, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::JavascriptCanAccessClipboard, true);
-        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebSettings::DnsPrefetchEnabled, true);
+        /// FIXME QWebEngine does not use the network access manager
+        //mTrapWebContentDialog->webView()->page()->setNetworkAccessManager(UBNetworkAccessManager::defaultAccessManager());
+        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebEngineSettings::WebAttribute::PluginsEnabled, true);
+        mTrapWebContentDialog->webView()->settings()->setAttribute(QWebEngineSettings::WebAttribute::JavascriptCanAccessClipboard, true);
     }
 
     mTrapWebContentDialog->show();

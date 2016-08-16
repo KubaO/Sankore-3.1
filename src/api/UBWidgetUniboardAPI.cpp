@@ -23,7 +23,7 @@
 
 #include "UBWidgetUniboardAPI.h"
 
-#include <QWebView>
+#include <QWebEngineView>
 #include <QDomDocument>
 #include <QtWidgets>
 
