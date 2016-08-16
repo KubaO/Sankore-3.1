@@ -25,3 +25,5 @@ win32 {
     sub_zlib.subdir = thirdparty/zlib
     sub_openssl.subdir = thirdparty/openssl
 }
+
+OTHER_FILES += README.md
